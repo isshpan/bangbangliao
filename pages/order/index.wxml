@@ -1,54 +1,85 @@
-<!--index.wxml-->
-<view>
-  <van-cell title="订单" size="large" style="font-family:Serif;font-weight:bold;"/>
-  <view style="margin-left:10px;width:70px;height:70px;">
-    <image src="/image/外卖.png" style='width:100%;height:100%'></image>
-    <text style='font-family:Serif;font-size:15px;font-weight:bold;margin-left:8px;'>外卖订单</text>
+<view style="background: #f9f9f9; padding-top: 10px; padding-bottom: 10px;">
+  <text style="margin-left: 20px; font-family: serif; font-size: 20px; font-weight: 900;">订单</text>
+</view>
+
+<van-row style="text-align: center;">
+  <van-col span="6">
+    <view>
+      <image style="width: 60px; height: 60px;" src="/image/外卖.png"></image>
+    </view>
+    <text style="font-family: serif; font-size: 15px; font-weight: bold;">外卖订单</text>
+  </van-col>
+  <van-col span="6">
+    <view>
+      <image style="width: 60px; height: 60px;" src="/image/快递.png"></image>
+    </view>
+    <text style="font-family: serif; font-size: 15px; font-weight: bold;">快递订单</text>
+  </van-col>
+  <van-col span="6">
+    <view>
+      <image style="width: 60px; height: 60px;" src="/image/食堂.png"></image>
+    </view>
+    <text style="font-family: serif; font-size: 15px; font-weight: bold;">食堂信息</text>
+  </van-col>
+  <van-col span="6">
+    <view>
+      <image style="width: 60px; height: 60px;" src="/image/快递信息.png"></image>
+    </view>
+    <text style="font-family: serif; font-size: 15px; font-weight: bold;">快递信息</text>
+  </van-col>
+</van-row>
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+  style="margin: 20px 0 20px 0">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" style="width: 100%; height: 100%;" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<view style="text-align: center; margin-bottom: 20px;">
+  <text style="font-family: serif; font-size: 16px; font-weight: bold;">外卖推荐</text>
+</view>
+
+<view style="flex-direction:row; display: flex; margin-bottom: 10px;">
+  <view style="width: 60%; height: 150px;">
+    <image
+      src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=35cc79c41a38534398c28f73f27adb1b/738b4710b912c8fcc3287c65f6039245d78821ba.jpg"
+      style="width: 100%; height: 100%;">
+    </image>
+  </view>
+  <view style="margin: 0 10px 0 10px; background: #f9f9f9; width: 40%;">
+    <view style="font-weight: bold; font-size: 15px;">新食堂二楼</view>
+    <view style="font-size: 12px; margin-top: 5px;">黄焖鸡米饭</view>
+    <text style="font-size: 12px; margin-top: 15px;">口味：不辣、微辣、中辣、特辣</text>
   </view>
 </view>
 
-<view style="margin-top:80px;margin-left:10px;  background:#f8f8f8;">
-  <van-row>
-    <van-col>
-      <image src="/image/好友.png" style="width:40px;height:40px"></image>
-    </van-col>
-    <van-col span="8" offset="1">
-      <view><text style="font-family:Serif;font-size:12px;">05-07 20:00</text></view>
-      <view><text style="font-family:Serif;font-size:12px;">Char</text></view>
-    </van-col>
-    <van-col span="6" offset="4">
-      <view><text style="font-family:Serif;font-size:12px;">状态：已接收</text></view>
-      <view><text style="font-family:Serif;font-size:12px;">标签：快递</text></view>
-    </van-col>
-  </van-row>
-  <view class="line"></view>
-  <van-row>
-    <text style="font-family:Serif;font-size:14px;">小南门唯品会的快递哪位小姐姐或者大锅可以帮忙取一下，13:00前哦，谢谢~地址：女子小区</text>
-  </van-row>
-  <van-row>
-    <van-col span="2" offset="19"><van-button type="primary" size="small">去评论</van-button></van-col>
-  </van-row>
+<view style="flex-direction:row; display: flex; margin-bottom: 10px;">
+  <view style="width: 60%; height: 150px;">
+    <image
+      src="http://img1.imgtn.bdimg.com/it/u=2393188447,1858471764&fm=26&gp=0.jpg"
+      style="width: 100%; height: 100%;">
+    </image>
+  </view>
+  <view style="margin: 0 10px 0 10px; background: #f9f9f9; width: 40%;">
+    <view style="font-weight: bold; font-size: 15px;">二食堂</view>
+    <view style="font-size: 12px; margin-top: 5px;">山西肉酱面</view>
+    <text style="font-size: 12px; margin-top: 15px;">面十分筋道，肉酱入味</text>
+  </view>
 </view>
 
-<view style="margin-top:80px;margin-left:10px;  background:#f8f8f8;">
-  <van-row>
-    <van-col>
-      <image src="/image/好友.png" style="width:40px;height:40px"></image>
-    </van-col>
-    <van-col span="8" offset="1">
-      <view><text style="font-family:Serif;font-size:12px;">4小时前</text></view>
-      <view><text style="font-family:Serif;font-size:12px;">Char</text></view>
-    </van-col>
-    <van-col span="6" offset="4">
-      <view><text style="font-family:Serif;font-size:12px;">状态：已支付</text></view>
-      <view><text style="font-family:Serif;font-size:12px;">标签：外卖</text></view>
-    </van-col>
-  </van-row>
-  <view class="line"></view>
-  <van-row>
-    <text style="font-family:Serif;font-size:14px;">有没有人啊，要饿死啦！求带7食堂的照烧鸡排饭！！地址：女子小区6号楼（接头地点私聊叭）</text>
-  </van-row>
-  <van-row>
-    <van-col span="2" offset="19"><van-button type="primary" size="small">去评论</van-button></van-col>
-  </van-row>
+<view style="flex-direction:row; display: flex; margin-bottom: 10px;">
+  <view style="width: 60%; height: 150px;">
+    <image
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558254753&di=c01b48fb4531ddf9e254ce44c31ba32d&imgtype=jpg&er=1&src=http%3A%2F%2Fcp1.douguo.net%2Fupload%2Fcaiku%2F4%2F7%2F1%2Fyuan_478e378633367d6469f81a24d4ae4191.jpg"
+      style="width: 100%; height: 100%;">
+    </image>
+  </view>
+  <view style="margin: 0 10px 0 10px; background: #f9f9f9; width: 40%;">
+    <view style="font-weight: bold; font-size: 15px;">七食堂</view>
+    <view style="font-size: 12px; margin-top: 5px;">照烧鸡排饭</view>
+    <text style="font-size: 12px; margin-top: 15px;">同类：黑椒牛扒饭。。。</text>
+  </view>
 </view>
