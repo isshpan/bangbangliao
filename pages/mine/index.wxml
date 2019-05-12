@@ -1,13 +1,52 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+
+<view style="background: #595959; height: 120px; padding-top: 40px;">
+  <view>
+    <van-row>
+      <van-col span="4" offset="1"><image src="/image/好友.png" style="width: 70px; height: 70px; color: white;"></image></van-col>
+      <van-col span="8" offset="1">
+        <view style="margin-top: 10px; margin-left: 5px;"><text style="font-family: serif; font-size: 18px; font-weight: bold; color: white;">char</text></view>
+        <image src="/image/手机.png" style="width: 15px; height: 15px;"></image>
+        <text style="margin-left: 5px; font-family: serif; font-size: 15px; color: white;">132****0688</text>
+      </van-col>
+    </van-row>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+</view>
+
+<view style="background:#f9f9f9; height: 100px;">
+  <van-row style="margin: 40px;">
+    <van-col span="8">
+      <view style="text-align: center; font-family: serif; font-weight: bolder; color: #F19D38">
+        <text style="font-size: 24px;">3</text>
+        <text style="font-size: 20px;">次</text>
+      </view>
+      <view style="margin: 5px; text-align: center; font-family: serif; font-size: 15px">外卖</view>
+    </van-col>
+    <van-col span="8">
+      <view style="text-align: center; font-family: serif; font-weight: bolder; color: #97C15B">
+        <text style="font-size: 24px;">6</text>
+        <text style="font-size: 20px;">次</text>
+      </view>
+      <view style="margin: 5px;;text-align: center; font-family: serif; font-size: 15px">快递</view>
+    </van-col>
+    <van-col span="8">
+      <view style="text-align: center; font-family: serif; font-weight: bolder; color: #9B50AF">
+        <text style="font-size: 24px;">9</text>
+        <text style="font-size: 20px;">个</text>
+      </view>
+      <view style="margin: 5px;;text-align: center; font-family: serif; font-size: 15px">好友</view>
+    </van-col>
+  </van-row>
+</view>
+
+<cell-group style="background: #f9f9f9">
+  <van-cell title="收货地址" icon="location" is-link></van-cell>
+  <van-cell title="账号管理" icon="setting" is-link></van-cell>
+  <van-cell title="服务中心" icon="service" is-link></van-cell>
+  <van-cell title="帮助反馈" icon="question" is-link></van-cell>
+  <van-cell title="规则中心" icon="column" is-link></van-cell>
+  <van-cell title="推荐有奖" icon="point-gift" is-link></van-cell>
+</cell-group>
+
+<view style="background: #f9f9f9; text-align: center; height: 25px; margin-top: 20px; padding: 13px;">
+  <text style="font-family: serif; font-size: 18px; font-weight: bold; color: red;">退出登录</text>
 </view>
