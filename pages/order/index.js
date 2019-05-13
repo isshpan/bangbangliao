@@ -28,5 +28,11 @@ Page({
     this.setData({
       duration: e.detail.value
     })
+  },
+  navigateToDelivery: function() {
+    wx.navigateTo({
+      url: './delivery/index'
+    });
+      
   }
 })

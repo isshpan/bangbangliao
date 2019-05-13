@@ -3,7 +3,7 @@
 </view>
 
 <van-row style="text-align: center;">
-  <van-col span="6">
+  <van-col span="6" bindtap="navigateToDelivery">
     <view>
       <image style="width: 60px; height: 60px;" src="/image/外卖.png"></image>
     </view>
