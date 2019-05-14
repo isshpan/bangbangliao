@@ -3,6 +3,20 @@
 const app = getApp()
 
 Page({
+  //转到收货地址页面
+  address: function (options) {
+    wx.navigateTo({
+      url: '../address/address',
+    })
+  },
+
+  //跳转好友聊天界面
+  chat: function (options) {
+    wx.switchTab({
+      url: '../chat/chat',
+    })
+  },
+
   data: {
     motto: 'Hello World',
     userInfo: {},
