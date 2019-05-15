@@ -36,7 +36,7 @@
 
 <view style="margin-top: 4px;margin-left:10px">
 <van-row gutter="20">
-  <van-col span="8" offset="5"><van-button type="danger" size="normal">删除</van-button></van-col>
+  <van-col span="8" offset="5"><van-button type="danger" size="normal">删除123123</van-button></van-col>
   <van-col><van-button type="primary" size="normal">确定</van-button></van-col>
 </van-row>
 </view>
