@@ -9,7 +9,7 @@
     </view>
     <text style="font-family: serif; font-size: 30rpx; font-weight: bold;">外卖订单</text>
   </van-col>
-  <van-col span="6">
+  <van-col span="6" bindtap="navigateToExpress">
     <view>
       <image style="width: 120rpx; height: 120rpx;" src="/image/快递.png"></image>
     </view>
@@ -21,7 +21,7 @@
     </view>
     <text style="font-family: serif; font-size: 30rpx; font-weight: bold;">食堂信息</text>
   </van-col>
-  <van-col span="6">
+  <van-col span="6" bindtap="navigateToExpressInfo">
     <view>
       <image style="width: 120rpx; height: 120rpx;" src="/image/快递信息.png"></image>
     </view>

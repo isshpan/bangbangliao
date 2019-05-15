@@ -35,4 +35,14 @@ Page({
             }
         ]
     },
+    navigateToAccept: function () {
+        wx.navigateTo({
+            url: '../accept/accept'
+        })
+    },
+    navigateToAddFriend: function () {
+        wx.navigateTo({
+            url: '../addFriend/addFriend'
+        })
+    }
 })

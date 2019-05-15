@@ -53,6 +53,15 @@ Page({
     wx.navigateTo({
       url: './delivery/delivery'
     });
-
+  },
+  navigateToExpress: function () {
+    wx.navigateTo({
+      url: './express/express'
+    })
+  },
+  navigateToExpressInfo: function () {
+    wx.navigateTo({
+      url: './expressInfo/expressInfo'
+    })
   }
 })

@@ -5,7 +5,12 @@
     "pages/chat/chat",
     "pages/mine/mine",
     "pages/address/address",
-    "pages/address/edit_address/edit_address"
+    "pages/address/edit_address/edit_address",
+    "pages/order/delivery/delivery",
+    "pages/order/express/express",
+    "pages/order/addFriend/addFriend",
+    "pages/order/accept/accept",
+    "pages/order/expressInfo/expressInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
