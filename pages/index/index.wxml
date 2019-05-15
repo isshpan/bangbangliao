@@ -30,28 +30,13 @@
   <view style='margin-left:0rpx;margin-top:20rpx;width:50rpx;height:50rpx;vertical-align: middle'><van-icon name="like-o" size='50rpx' /></view>
 </view>
 
-<view style='display:flex;flex-direction:row;background:#f8f8f8;margin-top:20rpx;flex-wrap:wrap'>
-  <view style='margin-left:30rpx;margin-top:20rpx;width:80rpx;height:80rpx;vertical-align: middle'><image src='/image/home.jpg' style='width:100%;height:100%'></image></view>
-  <view style='margin-left:30rpx;margin-top:20rpx;width: 100rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>4小时前</text></view>
-  <view style='margin-left:0rpx;margin-top:20rpx;width:150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>状态:已领取</text></view>
-  <view style='margin-left:0rpx;margin-top:20rpx;width: 150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>char</text></view>
-  <view style='margin-left:0rpx;margin-top:20rpx;width:100rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>标签:外卖</text></view>
-  <view style='margin-left:30rpx;margin-top:10rpx;width:95%;height:100rpx;vertical-align: middle'><text style='font-size:25rpx'>有没有人啊，幺二四啦！求带七食堂照烧鸡排饭！地址：女子小区(接头地点私聊把)</text></view>
-</view>
-
-<view style='display:flex;flex-direction:row;background:#f8f8f8;margin-top:20rpx;flex-wrap:wrap'>
-  <view style='margin-left:30rpx;margin-top:20rpx;width:80rpx;height:80rpx;vertical-align: middle'><image src='/image/home.jpg' style='width:100%;height:100%'></image></view>
-  <view style='margin-left:30rpx;margin-top:20rpx;width: 150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>0507 16：00</text></view>
-  <view style='margin-left:0rpx;margin-top:20rpx;width:150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>状态:--</text></view>
-  <view style='margin-left:0rpx;margin-top:20rpx;width: 150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>套马杆的汉字</text></view>
-  <view style='margin-left:0rpx;margin-top:20rpx;width:100rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>标签:聊天</text></view>
-  <view style='margin-left:30rpx;margin-top:10rpx;width:95%;height:100rpx;vertical-align: middle'><text style='font-size:25rpx'>空虚寂寞冷，求小姐姐撩骚</text></view>
-</view>
-<view style='display:flex;flex-direction:row;background:#f8f8f8;margin-top:20rpx;flex-wrap:wrap'>
-  <view style='margin-left:30rpx;margin-top:20rpx;width:80rpx;height:80rpx;vertical-align: middle'><image src='/image/home.jpg' style='width:100%;height:100%'></image></view>
-  <view style='margin-left:30rpx;margin-top:20rpx;width: 150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>05-07</text></view>
-  <view style='margin-left:0rpx;margin-top:20rpx;width:150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>状态:未领取</text></view>
-  <view style='margin-left:0rpx;margin-top:20rpx;width: 150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>matcha</text></view>
-  <view style='margin-left:0rpx;margin-top:20rpx;width:150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>标签:快递</text></view>
-  <view style='margin-left:30rpx;margin-top:10rpx;width:95%;height:100rpx;vertical-align: middle'><text style='font-size:25rpx'>小南门唯品会的快递那位小哥哥小姐姐或者大国可以帮忙去一下，13：00前哦，谢谢，地址：女子小区</text></view>
-</view>
+<block wx:for="{{infoList}}">
+  <view style='display:flex;flex-direction:row;background:#f8f8f8;margin-top:20rpx;flex-wrap:wrap'>
+    <view style='margin-left:30rpx;margin-top:20rpx;width:80rpx;height:80rpx;vertical-align: middle'><image src="{{item['image']}}" style='width:100%;height:100%'></image></view>
+    <view style='margin-left:30rpx;margin-top:20rpx;width: 100rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>{{item['time']}}</text></view>
+    <view style='margin-left:0rpx;margin-top:20rpx;width:150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>状态:{{item['state']}}</text></view>
+    <view style='margin-left:0rpx;margin-top:20rpx;width: 150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>{{item['name']}}</text></view>
+    <view style='margin-left:0rpx;margin-top:20rpx;width:100rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>标签:{{item['tag']}}</text></view>
+    <view style='margin-left:30rpx;margin-top:10rpx;width:95%;height:100rpx;vertical-align: middle'><text style='font-size:25rpx'>{{item['description']}}</text></view>
+  </view>
+</block>
