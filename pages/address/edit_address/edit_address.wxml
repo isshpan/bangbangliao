@@ -2,8 +2,8 @@
   <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>修改地址</text></view>
 </view>
 
-<view style="margin-top: 4px; background:#f8f8f8;">
-  <view style="padding:8px">
+<view style="margin-top: 8rpx; background:#f8f8f8;">
+  <view style="padding:16rpx">
     <van-row>
      <van-col span="6"><text style="font-size: 40rpx; font-family:Serif;">联系人</text></van-col>
      <van-col span="18"><view style="background:#ffffff"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">char</text></view></van-col>
@@ -13,19 +13,19 @@
     <van-col offset="6"><van-button plain type="default" size="mini">先生</van-button></van-col>
     <van-col><van-button plain type="info" size="mini">女士</van-button></van-col>
   </van-row>
-  <view style="padding:8px">
+  <view style="padding:16rpx">
     <van-row>
      <van-col span="6"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">电话</text></van-col>
      <van-col span="18"><view style="background:#ffffff"><text style="font-size: 40rpx; font-family:Serif;">13269200688</text></view></van-col>
     </van-row>
   </view>
-  <view style="padding:8px">
+  <view style="padding:16rpx">
     <van-row>
      <van-col span="6"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">地址</text></van-col>
      <van-col span="18"><view style="background:#ffffff"><text style="font-size: 40rpx; font-family:Serif;">女子小区6号楼</text></view></van-col>
     </van-row>
   </view>
-  <view style="padding-bottom:8px">
+  <view style="padding-bottom:16rpx">
   <van-row gutter="20">
     <van-col offset="6"><van-button plain type="info" size="mini">宿舍</van-button></van-col>
     <van-col><van-button plain type="default" size="mini">教室</van-button></van-col>
@@ -34,7 +34,7 @@
   </view>
 </view>
 
-<view style="margin-top: 4px;margin-left:10px">
+<view style="margin-top: 8rpx;margin-left:20rpx">
 <van-row gutter="20">
   <van-col span="8" offset="5"><van-button type="danger" size="normal">删除123123</van-button></van-col>
   <van-col><van-button type="primary" size="normal">确定</van-button></van-col>

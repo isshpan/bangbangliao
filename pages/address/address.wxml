@@ -2,7 +2,7 @@
     <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>收货地址</text></view>
 </view>
 
-<view style="margin-left: 10px; margin-top: 2px; background:#f8f8f8;">
+<view style="margin-left: 20rpx; margin-top: 4rpx; background:#f8f8f8;">
     <van-row>
        <van-col span="4"><text style="font-size: 38rpx; font-family:Serif;font-weight:bold">char</text></van-col>
        <van-col span="4"><text style="font-size: 33rpx; font-family:Serif"> 女士</text></van-col>
@@ -15,7 +15,7 @@
     </van-row>
 </view>
 
-<view style="margin-left: 10px; margin-top: 2px; background:#f8f8f8;">
+<view style="margin-left: 20rpx; margin-top: 4rpx; background:#f8f8f8;">
     <van-row>
        <van-col span="4"><text style="font-size: 38rpx; font-family:Serif;font-weight:bold">char</text></van-col>
        <van-col span="4"><text style="font-size: 33rpx; font-family:Serif"> 女士</text></van-col>
