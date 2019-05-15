@@ -1,4 +1,13 @@
 Page({
+
+  //跳转好友聊天界面
+  chat: function (options) {
+    wx.switchTab({
+      url: '../chat/chat',
+    })
+  },
+
+
   data: {
     imgUrls: [
       'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',

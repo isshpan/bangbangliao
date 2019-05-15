@@ -28,7 +28,7 @@
       </view>
       <view style="margin: 5px;;text-align: center; font-family: serif; font-size: 15px">快递</view>
     </van-col>
-    <van-col span="8">
+    <van-col span="8" bindtap="chat">
       <view style="text-align: center; font-family: serif; font-weight: bolder; color: #9B50AF">
         <text style="font-size: 24px;">9</text>
         <text style="font-size: 20px;">个</text>
@@ -39,7 +39,7 @@
 </view>
 
 <cell-group style="background: #f9f9f9">
-  <van-cell title="收货地址" icon="location" is-link></van-cell>
+  <van-cell  bindtap='address' title="收货地址" icon="location" is-link></van-cell>
   <van-cell title="账号管理" icon="setting" is-link></van-cell>
   <van-cell title="服务中心" icon="service" is-link></van-cell>
   <van-cell title="帮助反馈" icon="question" is-link></van-cell>

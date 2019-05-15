@@ -1,0 +1,212 @@
+<view style="margin-bottom: 30px;">
+    <view style="margin: 10px 5px 0 5px; padding-bottom: 10px; background: #f9f9f9;">
+        <van-row>
+            <van-col span="2">
+                <image src="/image/好友.png" style="width: 45px; height: 45px;"></image>
+            </van-col>
+            <van-col offset="2" span="2">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">char</view>
+            </van-col>
+            <van-col offset="2" span="3">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">4小时前</view>
+            </van-col>
+            <van-col offset="3" span="4">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>标签：</text>
+                    <text>外卖</text>
+                </view>
+            </van-col>
+            <van-col offset="1" span="5">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>状态：</text>
+                    <text>未领取</text>
+                </view>
+            </van-col>
+        </van-row>
+
+        <van-row>
+            <view style="margin: 0 18px 20px 8px;">
+                <text
+                    style="font-family: serif; font-size: 12px; line-height: 4px;">有没有人啊，要饿死啦！求带7食堂的照烧鸡排饭！！地址：女子小区6号楼（接头地点私聊叭）</text>
+            </view>
+        </van-row>
+
+        <van-row style="text-align: center;">
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">接单</button>
+            </van-col>
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">加好友</button>
+            </van-col>
+        </van-row>
+    </view>
+
+    <view style="margin: 10px 5px 0 5px; padding-bottom: 10px; background: #f9f9f9;">
+        <van-row>
+            <van-col span="2">
+                <image src="/image/好友.png" style="width: 45px; height: 45px;"></image>
+            </van-col>
+            <van-col offset="2" span="2">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">char</view>
+            </van-col>
+            <van-col offset="2" span="3">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">4小时前</view>
+            </van-col>
+            <van-col offset="3" span="4">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>标签：</text>
+                    <text>外卖</text>
+                </view>
+            </van-col>
+            <van-col offset="1" span="5">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>状态：</text>
+                    <text>未领取</text>
+                </view>
+            </van-col>
+        </van-row>
+
+        <van-row>
+            <view style="margin: 0 18px 20px 8px;">
+                <text
+                    style="font-family: serif; font-size: 12px; line-height: 4px;">有没有人啊，要饿死啦！求带7食堂的照烧鸡排饭！！地址：女子小区6号楼（接头地点私聊叭）</text>
+            </view>
+        </van-row>
+
+        <van-row style="text-align: center;">
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">接单</button>
+            </van-col>
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">加好友</button>
+            </van-col>
+        </van-row>
+    </view>
+
+    <view style="margin: 10px 5px 0 5px; padding-bottom: 10px; background: #f9f9f9;">
+        <van-row>
+            <van-col span="2">
+                <image src="/image/好友.png" style="width: 45px; height: 45px;"></image>
+            </van-col>
+            <van-col offset="2" span="2">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">char</view>
+            </van-col>
+            <van-col offset="2" span="3">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">4小时前</view>
+            </van-col>
+            <van-col offset="3" span="4">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>标签：</text>
+                    <text>外卖</text>
+                </view>
+            </van-col>
+            <van-col offset="1" span="5">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>状态：</text>
+                    <text>未领取</text>
+                </view>
+            </van-col>
+        </van-row>
+
+        <van-row>
+            <view style="margin: 0 18px 20px 8px;">
+                <text
+                    style="font-family: serif; font-size: 12px; line-height: 4px;">有没有人啊，要饿死啦！求带7食堂的照烧鸡排饭！！地址：女子小区6号楼（接头地点私聊叭）</text>
+            </view>
+        </van-row>
+
+        <van-row style="text-align: center;">
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">接单</button>
+            </van-col>
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">加好友</button>
+            </van-col>
+        </van-row>
+    </view>
+
+    <view style="margin: 10px 5px 0 5px; padding-bottom: 10px; background: #f9f9f9;">
+        <van-row>
+            <van-col span="2">
+                <image src="/image/好友.png" style="width: 45px; height: 45px;"></image>
+            </van-col>
+            <van-col offset="2" span="2">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">char</view>
+            </van-col>
+            <van-col offset="2" span="3">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">4小时前</view>
+            </van-col>
+            <van-col offset="3" span="4">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>标签：</text>
+                    <text>外卖</text>
+                </view>
+            </van-col>
+            <van-col offset="1" span="5">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>状态：</text>
+                    <text>未领取</text>
+                </view>
+            </van-col>
+        </van-row>
+
+        <van-row>
+            <view style="margin: 0 18px 20px 8px;">
+                <text
+                    style="font-family: serif; font-size: 12px; line-height: 4px;">有没有人啊，要饿死啦！求带7食堂的照烧鸡排饭！！地址：女子小区6号楼（接头地点私聊叭）</text>
+            </view>
+        </van-row>
+
+        <van-row style="text-align: center;">
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">接单</button>
+            </van-col>
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">加好友</button>
+            </van-col>
+        </van-row>
+    </view>
+
+    <view style="margin: 10px 5px 0 5px; padding-bottom: 10px; background: #f9f9f9;">
+        <van-row>
+            <van-col span="2">
+                <image src="/image/好友.png" style="width: 45px; height: 45px;"></image>
+            </van-col>
+            <van-col offset="2" span="2">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">char</view>
+            </van-col>
+            <van-col offset="2" span="3">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">4小时前</view>
+            </van-col>
+            <van-col offset="3" span="4">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>标签：</text>
+                    <text>外卖</text>
+                </view>
+            </van-col>
+            <van-col offset="1" span="5">
+                <view style="font-family: serif; font-size: 12px; font-weight: 300; margin-top: 15px;">
+                    <text>状态：</text>
+                    <text>未领取</text>
+                </view>
+            </van-col>
+        </van-row>
+
+        <van-row>
+            <view style="margin: 0 18px 20px 8px;">
+                <text
+                    style="font-family: serif; font-size: 12px; line-height: 4px;">有没有人啊，要饿死啦！求带7食堂的照烧鸡排饭！！地址：女子小区6号楼（接头地点私聊叭）</text>
+            </view>
+        </van-row>
+
+        <van-row style="text-align: center;">
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">接单</button>
+            </van-col>
+            <van-col offset="4" span="6">
+                <button type="default" size="mini" style="width: 100%; font-weight: 500;">加好友</button>
+            </van-col>
+        </van-row>
+    </view>
+</view>
+<button style="position: fixed; bottom: 0; padding: 0; width: 100%; height: 30px; line-height: 30px; font-size: 15px; background: #888888; color: white;">去下单</button>
