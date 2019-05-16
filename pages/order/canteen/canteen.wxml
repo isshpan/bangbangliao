@@ -1,0 +1,110 @@
+<view style="background: #f9f9f9; padding: 10rpx; margin: 20rpx;">
+    <van-row>
+        <view style="font-family: serif; font-size: 40rpx; font-weight: bolder;">新食堂</view>
+        <view style="margin-top: 30rpx;">
+            <van-row style="height: 200rpx;">
+                <van-col span="3"><text style="font-family: serif; font-size: 32rpx; font-weight: bolder;">一楼</text>
+                </van-col>
+                <van-col offset="1" span="20">
+                    <view style="height: 200rpx;">
+                        <image src="/image/new_first.jpg" style="width: 100%; height: 100%;"></image>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+        <view style="margin-top: 30rpx;">
+            <van-row style="height: 200rpx;">
+                <van-col span="3"><text style="font-family: serif; font-size: 32rpx; font-weight: bolder;">二楼</text>
+                </van-col>
+                <van-col offset="1" span="20">
+                    <view style="height: 200rpx;">
+                        <image src="/image/new_first.jpg" style="width: 100%; height: 100%;"></image>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+        <view style="margin-top: 30rpx; padding-bottom: 30rpx;">
+            <van-row style="height: 200rpx;">
+                <van-col span="3"><text style="font-family: serif; font-size: 32rpx; font-weight: bolder;">三楼</text>
+                </van-col>
+                <van-col offset="1" span="20">
+                    <view style="height: 200rpx;">
+                        <image src="/image/new_first.jpg" style="width: 100%; height: 100%;"></image>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+    </van-row>
+</view>
+
+<view style="background: #f9f9f9; padding: 10rpx; margin: 20rpx;">
+    <van-row>
+        <view style="font-family: serif; font-size: 40rpx; font-weight: bolder;">二食堂</view>
+        <view style="margin-top: 30rpx;">
+            <van-row style="height: 200rpx;">
+                <van-col span="3"><text style="font-family: serif; font-size: 32rpx; font-weight: bolder;">美味自选</text>
+                </van-col>
+                <van-col offset="1" span="20">
+                    <view style="height: 200rpx;">
+                        <image src="/image/second_1.jpg" style="width: 100%; height: 100%;"></image>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+        <view style="margin-top: 30rpx;">
+            <van-row style="height: 200rpx;">
+                <van-col span="3"><text style="font-family: serif; font-size: 32rpx; font-weight: bolder;">川湘味道</text>
+                </van-col>
+                <van-col offset="1" span="20">
+                    <view style="height: 200rpx;">
+                        <image src="/image/second_3.jpg" style="width: 100%; height: 100%;"></image>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+        <view style="margin-top: 30rpx;">
+            <van-row style="height: 200rpx;">
+                <van-col span="3"><text style="font-family: serif; font-size: 32rpx; font-weight: bolder;">陕赣味道</text>
+                </van-col>
+                <van-col offset="1" span="20">
+                    <view style="height: 200rpx;">
+                        <image src="/image/second_3.jpg" style="width: 100%; height: 100%;"></image>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+        <view style="margin-top: 30rpx;">
+            <van-row style="height: 200rpx;">
+                <van-col span="3"><text style="font-family: serif; font-size: 32rpx; font-weight: bolder;">山西味道</text>
+                </van-col>
+                <van-col offset="1" span="20">
+                    <view style="height: 200rpx;">
+                        <image src="/image/second_4.jpg" style="width: 100%; height: 100%;"></image>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+        <view style="margin-top: 30rpx;">
+            <van-row style="height: 200rpx;">
+                <van-col span="3"><text style="font-family: serif; font-size: 32rpx; font-weight: bolder;">水饺</text>
+                </van-col>
+                <van-col offset="1" span="20">
+                    <view style="height: 200rpx;">
+                        <image src="/image/second_5.png" style="width: 100%; height: 100%;"></image>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+        <view style="margin-top: 30rpx;">
+            <van-row style="height: 200rpx;">
+                <van-col span="3"><text style="font-family: serif; font-size: 32rpx; font-weight: bolder;">麻辣烫</text>
+                </van-col>
+                <van-col offset="1" span="20">
+                    <view style="height: 200rpx;">
+                        <image src="/image/second_6.jpg" style="width: 100%; height: 100%;"></image>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+    </van-row>
+</view>

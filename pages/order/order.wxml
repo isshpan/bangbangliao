@@ -15,7 +15,7 @@
     </view>
     <text style="font-family: serif; font-size: 30rpx; font-weight: bold;">快递订单</text>
   </van-col>
-  <van-col span="6">
+  <van-col span="6" bindtap="navigateToCanteen">
     <view>
       <image style="width: 120rpx; height: 120rpx;" src="/image/食堂.png"></image>
     </view>
