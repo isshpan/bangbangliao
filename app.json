@@ -10,7 +10,15 @@
     "pages/order/express/express",
     "pages/order/addFriend/addFriend",
     "pages/order/accept/accept",
-    "pages/order/expressInfo/expressInfo"
+    "pages/order/expressInfo/expressInfo",
+    "pages/mine/personal/personal",
+    "pages/mine/server_center/server_center",
+    "pages/mine/feedback/feedback",
+    "pages/mine/rule/rule",
+    "pages/mine/rule/privacy_policy/privacy_policy",
+    "pages/mine/rule/registration/registration",
+    "pages/mine/recommend/recommend",
+    "pages/order/make_order/make_order"
   ],
   "window": {
     "backgroundTextStyle": "light",

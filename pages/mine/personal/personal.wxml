@@ -1,0 +1,45 @@
+<view style='background: #f8f8f8;'>
+  <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>账号管理</text></view>
+</view>
+
+<view style="margin-top: 8rpx;">
+  <view style='margin-left:5%;margin-top:16rpx;margin-bottom:16rpx'>
+    <van-row>
+     <van-col span="5"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">头像</text></van-col>
+     <van-col span="4"><image src="{{photo}}" style="width: 90rpx; height:90rpx;"></image></van-col>
+    </van-row>
+  </view>
+  <view class="line"></view>
+
+  <view style='margin-left:5%;margin-top:16rpx;margin-bottom:16rpx'>
+    <van-row>
+     <van-col span="5"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">昵称</text></van-col>
+     <van-col>
+      <text style="font-size: 40rpx; font-family:Serif;">{{name}}</text>
+     </van-col>
+    </van-row>
+  </view>
+  <view class="line"></view>
+  
+  <view style='margin-left:5%;margin-top:16rpx;margin-bottom:16rpx'>
+    <van-row>
+     <van-col span="5"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">性别</text></van-col>
+     <van-col>
+      <text style="font-size: 40rpx; font-family:Serif;">{{sex}}</text>
+     </van-col>
+    </van-row>
+  </view>
+  <view class="line"></view>
+
+  <view style='margin-left:5%;margin-top:16rpx;margin-bottom:16rpx'>
+    <van-row>
+     <van-col span="5"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">手机</text></van-col>
+     <van-col>
+      <text style="font-size: 40rpx; font-family:Serif;">{{phone}}</text>
+     </van-col>
+    </van-row>
+  </view>
+
+</view>
+
+<view style="text-align: center; margin-top: 30rpx;"><button type="primary" style="width: 400rpx;" size="mini">确定</button></view>

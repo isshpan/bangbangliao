@@ -22,5 +22,12 @@ Page({
         'tag': 3
       }
     ]
-  }
+  },
+
+  //跳转添加好友界面
+  addFriend: function (options) {
+    wx.navigateTo({
+      url: '../order/addFriend/addFriend',
+    })
+  },
 })

@@ -41,8 +41,8 @@
 </view>
 
 <view style="margin-top: 8rpx;margin-left:20rpx">
-<van-row gutter="20">
-  <van-col span="8" offset="5"><van-button type="danger" size="normal">删除123123</van-button></van-col>
-  <van-col><van-button type="primary" size="normal">确定</van-button></van-col>
+<van-row>
+  <van-col span="10" offset="1"><button type="warn" style='with:240rpx' size="samll">删除</button></van-col>
+  <van-col span='10' offset='2'><button type="primary" size="small">确定</button></van-col>
 </van-row>
 </view>
