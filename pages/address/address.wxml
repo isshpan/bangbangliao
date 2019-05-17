@@ -2,20 +2,21 @@
     <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>收货地址</text></view>
 </view>
 
-<view style="margin-left: 10px; margin-top: 2px; background:#f8f8f8;">
+<view style="margin-left: 20rpx; margin-top: 4rpx; background:#f8f8f8;">
     <van-row>
-       <van-col span="4"><text style="font-size: 38rpx; font-family:Serif;font-weight:bold">char</text></van-col>
-       <van-col span="4"><text style="font-size: 33rpx; font-family:Serif"> 女士</text></van-col>
-       <van-col><text style="font-size: 33rpx; font-family:Serif"> 13269200688</text></van-col>
+       <van-col span="4"><text style="font-size: 38rpx; font-family:Serif;font-weight:bold">{{item['name']}}</text></van-col>
+       <van-col span="4"><text style="font-size: 33rpx; font-family:Serif">{{item['sex']}}</text></van-col>
+       <van-col><text style="font-size: 33rpx; font-family:Serif">{{item['phone']}}</text></van-col>
     </van-row>
     <van-row>
-      <van-col span="5"><van-button type="primary" size="mini">宿舍</van-button></van-col>
-      <van-col span="16"><text style="font-size: 29rpx; font-family:Serif"> 女子小区6号楼</text></van-col>
+      <van-col span="5" wx:if="{{item['location'] == '教室'}}"><van-button type="warning" size="mini">{{item['location']}}</van-button></van-col>
+      <van-col span="5" wx:elif="{{item['location'] == '宿舍'}}"><van-button type="primary" size="mini">{{item['location']}}</van-button></van-col>
+      <van-col span="16"><text style="font-size: 29rpx; font-family:Serif">{{item['address']}}</text></van-col>
       <van-col ><van-icon name="edit" size='50rpx' bindtap='edit_address' /></van-col> 
     </van-row>
 </view>
 
-<view style="margin-left: 10px; margin-top: 2px; background:#f8f8f8;">
+<view style="margin-left: 20rpx; margin-top: 4rpx; background:#f8f8f8;">
     <van-row>
        <van-col span="4"><text style="font-size: 38rpx; font-family:Serif;font-weight:bold">char</text></van-col>
        <van-col span="4"><text style="font-size: 33rpx; font-family:Serif"> 女士</text></van-col>

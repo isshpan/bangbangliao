@@ -1,39 +1,39 @@
 
-<view style="background: #595959; height: 120px; padding-top: 40px;">
+<view style="background: #595959; height: 240rpx; padding-top: 80rpx;">
   <view>
     <van-row>
-      <van-col span="4" offset="1"><image src="/image/好友.png" style="width: 70px; height: 70px; color: white;"></image></van-col>
+      <van-col span="4" offset="1"><image src="{{profile['photo']}}" style="width: 140rpx; height: 140rpx; color: white;"></image></van-col>
       <van-col span="8" offset="1">
-        <view style="margin-top: 10px; margin-left: 5px;"><text style="font-family: serif; font-size: 18px; font-weight: bold; color: white;">char</text></view>
-        <image src="/image/手机.png" style="width: 15px; height: 15px;"></image>
-        <text style="margin-left: 5px; font-family: serif; font-size: 15px; color: white;">132****0688</text>
+        <view style="margin-top: 20rpx; margin-left: 10rpx;"><text style="font-family: serif; font-size: 36rpx; font-weight: bold; color: white;">{{profile['name']}}</text></view>
+        <image src="/image/手机.png" style="width: 30rpx; height: 30rpx;"></image>
+        <text style="margin-left: 10rpx; font-family: serif; font-size: 30rpx; color: white;">{{profile['phone']}}</text>
       </van-col>
     </van-row>
   </view>
 </view>
 
-<view style="background:#f9f9f9; height: 100px;">
-  <van-row style="margin: 40px;">
+<view style="background:#f9f9f9; height: 200rpx;">
+  <van-row style="margin: 80rpx;">
     <van-col span="8">
       <view style="text-align: center; font-family: serif; font-weight: bolder; color: #F19D38">
-        <text style="font-size: 24px;">3</text>
-        <text style="font-size: 20px;">次</text>
+        <text style="font-size: 48rpx;">{{count['delivery']}}</text>
+        <text style="font-size: 40rpx;">次</text>
       </view>
-      <view style="margin: 5px; text-align: center; font-family: serif; font-size: 15px">外卖</view>
+      <view style="margin: 10rpx; text-align: center; font-family: serif; font-size: 30rpx">外卖</view>
     </van-col>
     <van-col span="8">
       <view style="text-align: center; font-family: serif; font-weight: bolder; color: #97C15B">
-        <text style="font-size: 24px;">6</text>
-        <text style="font-size: 20px;">次</text>
+        <text style="font-size: 48rpx;">{{count['express']}}</text>
+        <text style="font-size: 40rpx;">次</text>
       </view>
-      <view style="margin: 5px;;text-align: center; font-family: serif; font-size: 15px">快递</view>
+      <view style="margin: 10rpx;;text-align: center; font-family: serif; font-size: 30rpx">快递</view>
     </van-col>
     <van-col span="8" bindtap="chat">
       <view style="text-align: center; font-family: serif; font-weight: bolder; color: #9B50AF">
-        <text style="font-size: 24px;">9</text>
-        <text style="font-size: 20px;">个</text>
+        <text style="font-size: 48rpx;">{{count['friend']}}</text>
+        <text style="font-size: 40rpx;">个</text>
       </view>
-      <view style="margin: 5px;;text-align: center; font-family: serif; font-size: 15px">好友</view>
+      <view style="margin: 10rpx;;text-align: center; font-family: serif; font-size: 30rpx">好友</view>
     </van-col>
   </van-row>
 </view>
@@ -47,6 +47,6 @@
   <van-cell title="推荐有奖" icon="point-gift" is-link></van-cell>
 </cell-group>
 
-<view style="background: #f9f9f9; text-align: center; height: 25px; margin-top: 20px; padding: 13px;">
-  <text style="font-family: serif; font-size: 18px; font-weight: bold; color: red;">退出登录</text>
+<view style="background: #f9f9f9; text-align: center; height: 50rpx; margin-top: 40rpx; padding: 26rpx;">
+  <text style="font-family: serif; font-size: 36rpx; font-weight: bold; color: red;">退出登录</text>
 </view>
