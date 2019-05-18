@@ -11,7 +11,8 @@
     "pages/order/canteen/canteen",
     "pages/order/expressInfo/expressInfo",
     "pages/order/addFriend/addFriend",
-    "pages/order/accept/accept"
+    "pages/order/accept/accept",
+    "pages/chat/chatui/chatui"
   ],
   "window": {
     "backgroundTextStyle": "light",

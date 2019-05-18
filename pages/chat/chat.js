@@ -22,5 +22,10 @@ Page({
         'tag': 3
       }
     ]
+  },
+  navigateToChatUI: function (){
+    wx.navigateTo({
+      url: './chatui/chatui'
+    })
   }
 })

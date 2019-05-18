@@ -6,7 +6,7 @@
 </view>
 
 <block wx:for="{{chatInfoList}}">
-  <view style="margin-left: 20rpx; margin-top: 4rpx; background:#f9f9f9;">
+  <view style="margin-left: 20rpx; margin-top: 4rpx; background:#f9f9f9;" bindtap='navigateToChatUI'>
     <van-row>
       <van-col span="4"><image src="{{item['photo']}}" style="width: 90rpx; height:90rpx;"></image></van-col>
       <van-col span="16">
