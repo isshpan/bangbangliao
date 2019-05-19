@@ -1,7 +1,7 @@
 
 <view style="background: #595959; height: 240rpx; padding-top: 80rpx;">
   <view>
-    <van-row>
+    <van-row  bindtap='personal'>
       <van-col span="4" offset="1"><image src="{{profile['photo']}}" style="width: 140rpx; height: 140rpx; color: white;"></image></van-col>
       <van-col span="8" offset="1">
         <view style="margin-top: 20rpx; margin-left: 10rpx;"><text style="font-family: serif; font-size: 36rpx; font-weight: bold; color: white;">{{profile['name']}}</text></view>
