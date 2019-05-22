@@ -37,10 +37,28 @@ Page({
     duration: 1000
   },
 
-  //跳转好友聊天界面
-  chat: function (options) {
-    wx.switchTab({
-      url: '../chat/chat',
+  //跳转下单界面
+  make_order: function (options) {
+    wx.navigateTo({
+      url: '../order/make_order/make_order',
     })
-  }
+  },
+  //跳转外卖订单界面
+  delivery: function (options) {
+    wx.navigateTo({
+      url: '../order/delivery/delivery',
+    })
+  },
+  //跳转快递订单界面
+  express: function (options) {
+    wx.navigateTo({
+      url: '../order/express/express',
+    })
+  },
+  //跳转添加好友界面
+  addFriend: function (options) {
+    wx.navigateTo({
+      url: '../order/addFriend/addFriend',
+    })
+  },
 })

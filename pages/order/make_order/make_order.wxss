@@ -1,0 +1,6 @@
+.line{
+  width:73%;
+  height:2rpx;
+  background:#aaa;
+  margin-left:20%;
+}

@@ -5,7 +5,7 @@ const app = getApp()
 Page({
   data: {
     profile: {
-      'photo': '/image/好友.png',
+      'photo': '/image/friend.png',
       'name': 'char',
       'phone': '132****0688'
     },
@@ -20,6 +20,41 @@ Page({
   address: function (options) {
     wx.navigateTo({
       url: '../address/address',
+    })
+  },
+
+  //转到个人主页
+  personal: function (options) {
+    wx.navigateTo({
+      url: '../mine/personal/personal',
+    })
+  },
+
+  //转到服务中心
+  server_center: function (options) {
+    wx.navigateTo({
+      url: '../mine/server_center/server_center',
+    })
+  },
+
+  //转到帮助反馈
+  feedback: function (options) {
+    wx.navigateTo({
+      url: '../mine/feedback/feedback',
+    })
+  },
+
+  //转到规则中心
+  rule: function (options) {
+    wx.navigateTo({
+      url: '../mine/rule/rule',
+    })
+  },
+
+  //转到推荐有奖
+  recommend: function (options) {
+    wx.navigateTo({
+      url: '../mine/recommend/recommend',
     })
   },
 

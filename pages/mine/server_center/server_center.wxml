@@ -1,0 +1,20 @@
+<view style='background: #f8f8f8;'>
+  <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>服务中心</text></view>
+</view>
+
+<view style="margin-left:16rpx;">
+  <text style='font-size:30rpx'>热门服务</text>
+</view>
+
+<block wx:for="{{serverInfo}}">
+  <view style='margin-top:8rpx;background: #f8f8f8;height:57rpx'>
+    <van-row>
+      <van-col>
+        <text style="margin-left:16rpx;font-size: 25rpx; font-family:Serif;font-weight:bold">{{item['problem']}}</text>
+      </van-col>
+      <van-col offset="19">
+        <van-icon name="arrow" size='25rpx' />
+      </van-col>
+   </van-row>
+  </view>
+</block>

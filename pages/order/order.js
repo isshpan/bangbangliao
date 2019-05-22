@@ -1,8 +1,8 @@
 Page({
   data: {
     imgUrls: [
-      '/image/食堂信息1.png',
-      '/image/食堂信息2.png'
+      '/image/canteen1.png',
+      '/image/canteen2.png'
     ],
     recommend: [
       {

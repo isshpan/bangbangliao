@@ -1,0 +1,17 @@
+<view style='background: #f8f8f8;'>
+  <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>帮助反馈</text></view>
+</view>
+
+<view style='margin-top:16rpx;margin-left:5%;margin-right:5%;border:3rpx solid #aaa;height:250rpx'>
+  <textarea class="textarea-bg" placeholder='请留下您宝贵得意见或建议，我们将努力改进（不少于9个字）' bindblur='getDataBindTap' auto-height />
+</view>
+
+<view style='margin-top:32rpx;margin-left:5%;margin-right:5%;border:3rpx solid #aaa;'>
+  <textarea class="textarea-bg" placeholder='请留下您的手机号，以便我们回复您' bindblur='getDataBindTap' auto-height />
+</view>
+
+<view style="margin-top: 30rpx;">
+  <button type="primary" style="margin-left:5%;width:90%;" size="mini">提交</button>
+</view>
+
+

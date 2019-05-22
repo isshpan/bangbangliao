@@ -5,25 +5,25 @@
 <van-row style="text-align: center;">
   <van-col span="6" bindtap="navigateToDelivery">
     <view>
-      <image style="width: 120rpx; height: 120rpx;" src="/image/外卖.png"></image>
+      <image style="width: 120rpx; height: 120rpx;" src="/image/delivery.png"></image>
     </view>
     <text style="font-family: serif; font-size: 30rpx; font-weight: bold;">外卖订单</text>
   </van-col>
   <van-col span="6" bindtap="navigateToExpress">
     <view>
-      <image style="width: 120rpx; height: 120rpx;" src="/image/快递.png"></image>
+      <image style="width: 120rpx; height: 120rpx;" src="/image/express.png"></image>
     </view>
     <text style="font-family: serif; font-size: 30rpx; font-weight: bold;">快递订单</text>
   </van-col>
   <van-col span="6" bindtap="navigateToCanteen">
     <view>
-      <image style="width: 120rpx; height: 120rpx;" src="/image/食堂.png"></image>
+      <image style="width: 120rpx; height: 120rpx;" src="/image/canteen.png"></image>
     </view>
     <text style="font-family: serif; font-size: 30rpx; font-weight: bold;">食堂信息</text>
   </van-col>
   <van-col span="6" bindtap="navigateToExpressInfo">
     <view>
-      <image style="width: 120rpx; height: 120rpx;" src="/image/快递信息.png"></image>
+      <image style="width: 120rpx; height: 120rpx;" src="/image/expressInfo.png"></image>
     </view>
     <text style="font-family: serif; font-size: 30rpx; font-weight: bold;">快递信息</text>
   </van-col>

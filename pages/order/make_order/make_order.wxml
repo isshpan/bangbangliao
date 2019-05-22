@@ -1,0 +1,45 @@
+<view style="margin-left:77%; margin-top: 16rpx;"><button type="primary" size="mini">发布</button></view>
+
+
+<view style='margin-top:16rpx'>
+<van-row>
+  <van-col span='4' offset='1'>
+   <text style="font-size: 40rpx; font-family:Serif;font-weight:bold">标签</text>
+  </van-col>
+  <van-col span="16"><input value="{{requestInput}}" focus="true"></input></van-col>
+  <van-col>
+    <van-icon name="cross" style="color: gray" bindtap="clearRequestInput"></van-icon>
+  </van-col>
+</van-row>
+  <view class="line"></view>
+</view>
+
+<view style='margin-top:16rpx'>
+  <van-row>
+    <van-col offset="6"><van-button type="warning" size="mini">外卖</van-button></van-col>
+    <van-col offset='2'><van-button type="primary" size="mini">快递</van-button></van-col>
+  </van-row>
+</view>
+
+<view style='margin-top:32rpx'>
+<van-row>
+  <van-col span='4' offset='1'>
+   <text style="font-size: 40rpx; font-family:Serif;font-weight:bold">正文</text>
+  </van-col>
+  <van-col span='17'>
+    <input style='border:3rpx solid #aaa;height:250rpx' value="{{requestInput}}" focus="true"></input>
+  </van-col>
+</van-row>
+</view>
+
+<view style='margin-top:16rpx;margin-left:4.1%'>
+  <text style="font-size: 40rpx; font-family:Serif;font-weight:bold">收货地址</text>
+</view>
+
+<view style='margin-top:16rpx'>
+  <van-row>
+    <van-col offset='1'><van-button type="primary" size="mini">宿舍</van-button></van-col>
+    <van-col offset='1'><text style="font-size: 30rpx; font-family:Serif;">女子小区6号楼</text></van-col>
+    <van-col></van-col>
+  </van-row>
+</view>
