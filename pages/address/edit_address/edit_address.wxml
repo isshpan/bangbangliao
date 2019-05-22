@@ -12,8 +12,8 @@
     </van-row>
   </view>
   <van-row gutter="20">
-    <van-col offset="7"><van-button plain type="default" size="small">先生</van-button></van-col>
-    <van-col><van-button plain type="info" size="small">女士</van-button></van-col>
+    <van-col offset="7"><van-button plain type="{{male}}" size="small" bind:click="changeToMale">先生</van-button></van-col>
+    <van-col><van-button plain type="{{female}}" size="small" bind:click="changeToFemale">女士</van-button></van-col>
   </van-row>
   <view style="padding:16rpx">
     <van-row>
@@ -33,9 +33,9 @@
   </view>
   <view style="padding-bottom:16rpx">
   <van-row gutter="20">
-    <van-col offset="7"><van-button plain type="info" size="small">宿舍</van-button></van-col>
-    <van-col><van-button plain type="default" size="small">教室</van-button></van-col>
-    <van-col><van-button plain type="default" size="small">其他</van-button></van-col>
+    <van-col offset="7"><van-button plain type="{{dormitory}}" size="small" bind:click="changeToDormitory">宿舍</van-button></van-col>
+    <van-col><van-button plain type="{{classroom}}" size="small" bind:click="changeToClassroom">教室</van-button></van-col>
+    <van-col><van-button plain type="{{other}}" size="small" bind:click="changeToOther">其他</van-button></van-col>
   </van-row>
   </view>
 </view>

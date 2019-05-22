@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      male: 'info',
+      female: 'default',
+      dormitory: 'info',
+      classroom: 'default',
+      other: 'default'
   },
 
   /*
@@ -13,62 +17,33 @@ Page({
   */
   getDataBindTap: function (e) {
     var result = e.detail.value;
-    console.log(result)
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  changeToMale: function () {
+    this.setData({male: 'info'});
+    this.setData({female: 'default'});
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  changeToFemale: function () {
+    this.setData({male: 'default'});
+    this.setData({female: 'info'});
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  changeToDormitory: function () {
+    this.setData({dormitory: 'info'});
+    this.setData({classroom: 'default'});
+    this.setData({other: 'default'});
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  changeToClassroom: function () {
+    this.setData({dormitory: 'default'});
+    this.setData({classroom: 'info'});
+    this.setData({other: 'default'});
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  changeToOther: function () {
+    this.setData({dormitory: 'default'});
+    this.setData({classroom: 'default'});
+    this.setData({other: 'info'});
   }
 })
