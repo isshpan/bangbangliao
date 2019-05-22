@@ -59,6 +59,11 @@ Page({
       url: './express/express'
     })
   },
+  navigateToCanteen: function () {
+    wx.navigateTo({
+      url: './canteen/canteen'
+    })
+  },
   navigateToExpressInfo: function () {
     wx.navigateTo({
       url: './expressInfo/expressInfo'
