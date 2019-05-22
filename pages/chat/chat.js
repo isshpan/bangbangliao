@@ -2,7 +2,7 @@ Page({
   data: {
     'chatInfoList': [
       {
-        'photo': '/image/好友.png',
+        'photo': '/image/friend.jpg',
         'name': 'char',
         'description': '嘿嘿嘿',
         'time': '昨天',
