@@ -11,7 +11,6 @@
     "pages/order/canteen/canteen",
     "pages/order/expressInfo/expressInfo",
     "pages/order/addFriend/addFriend",
-<<<<<<< HEAD
     "pages/order/accept/accept",
     "pages/order/expressInfo/expressInfo",
     "pages/mine/personal/personal",
@@ -21,10 +20,9 @@
     "pages/mine/rule/privacy_policy/privacy_policy",
     "pages/mine/rule/registration/registration",
     "pages/mine/recommend/recommend",
-    "pages/order/make_order/make_order"
-=======
-    "pages/order/accept/accept"
->>>>>>> first
+    "pages/order/make_order/make_order",
+    "pages/order/accept/accept",
+    "pages/chat/chatui/chatui"
   ],
   "window": {
     "backgroundTextStyle": "light",

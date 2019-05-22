@@ -2,11 +2,7 @@ Page({
   data: {
     'chatInfoList': [
       {
-<<<<<<< HEAD
-        'photo': '/image/friend.jpg',
-=======
         'photo': '/image/friend.png',
->>>>>>> e7d7bab382d565aa887a402858a6694b2e6e9baa
         'name': 'char',
         'description': '嘿嘿嘿',
         'time': '昨天',
@@ -34,4 +30,9 @@ Page({
       url: '../order/addFriend/addFriend',
     })
   },
+  navigateToChatUI: function (){
+    wx.navigateTo({
+      url: './chatui/chatui'
+    })
+  }
 })
