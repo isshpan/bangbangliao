@@ -44,5 +44,12 @@ Page({
         wx.navigateTo({
             url: '../addFriend/addFriend'
         })
-    }
+    },
+
+  //跳转下单界面
+  make_order: function (options) {
+    wx.navigateTo({
+      url: '../make_order/make_order',
+    })
+  },
 })

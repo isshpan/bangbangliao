@@ -1,0 +1,58 @@
+<view style='background: #f8f8f8;'>
+  <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>规则中心</text></view>
+</view>
+
+<view style='margin-top:8rpx;background: #f8f8f8;height:57rpx'>
+  <van-row>
+    <van-col span="12">
+      <text style="margin-left:16rpx;font-size: 30rpx; font-family:Serif;font-weight:bold">服务承诺</text>
+    </van-col>
+    <van-col offset="10">
+      <van-icon name="arrow" size='30rpx' />
+    </van-col>
+  </van-row>
+</view>
+
+<view style='margin-top:8rpx;background: #f8f8f8;height:57rpx'>
+  <van-row>
+    <van-col span="12">
+      <text style="margin-left:16rpx;font-size: 30rpx; font-family:Serif;font-weight:bold">公示栏</text>
+    </van-col>
+    <van-col offset="10">
+      <van-icon name="arrow" size='30rpx' />
+    </van-col>
+  </van-row>
+</view>
+
+<view style='margin-top:8rpx;background: #f8f8f8;height:57rpx'>
+  <van-row>
+    <van-col span="12">
+      <text style="margin-left:16rpx;font-size: 30rpx; font-family:Serif;font-weight:bold">北理帮帮聊平台规则</text>
+    </van-col>
+    <van-col offset="10">
+      <van-icon name="arrow" size='30rpx' />
+    </van-col>
+  </van-row>
+</view>
+
+<view style='margin-top:8rpx;background: #f8f8f8;height:57rpx'>
+  <van-row bindtap='privacy_policy'>
+    <van-col span="12">
+      <text style="margin-left:16rpx;font-size: 30rpx; font-family:Serif;font-weight:bold">用户隐私政策</text>
+    </van-col>
+    <van-col offset="10">
+      <van-icon name="arrow" size='30rpx' />
+    </van-col>
+  </van-row>
+</view>
+
+<view style='margin-top:8rpx;background: #f8f8f8;height:57rpx'>
+  <van-row bindtap='registration'>
+    <van-col span="12">
+      <text style="margin-left:16rpx;font-size: 30rpx; font-family:Serif;font-weight:bold">用户注册协议</text>
+    </van-col>
+    <van-col offset="10">
+      <van-icon name="arrow" size='30rpx' />
+    </van-col>
+  </van-row>
+</view>

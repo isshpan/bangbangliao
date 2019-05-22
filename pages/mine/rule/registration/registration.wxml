@@ -1,0 +1,5 @@
+<view style='background: #f8f8f8;padding:8rpx'>
+  <view style='margin-left:8rp'><text style='font-size:40rpx'>用户注册协议</text></view>
+</view>
+
+<image src="/image/registration.jpg" style='width:100%' mode='widthFix' />

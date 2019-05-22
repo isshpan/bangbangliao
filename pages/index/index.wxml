@@ -13,15 +13,15 @@
 </swiper>
 <van-search value="{{ value }}" placeholder="搜索信息" />
 <view style='display:flex;flex-direction:row'>
-  <view style='margin-left:120rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="shop-o" size='100rpx' /></view>
-    <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="logistics" size='100rpx' /></view>
-      <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="contact" size='100rpx' bindtap='chat' /></view>
+  <view style='margin-left:120rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="shop-o" size='100rpx' bindtap='delivery' /></view>
+  <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="logistics" size='100rpx' bindtap='express' /></view>
+  <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><image bindtap='addFriend' src="/image/addFriend.png" style="width: 100rpx; height: 100rpx;" /></view>
 </view>
 
 <view style='display:flex;flex-direction:row'>
-  <view style='margin-left:120rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx'>外卖信息</text></view>
-    <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx'>快递信息</text></view>
-      <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx' bindtap='chat'>好友信息</text></view>
+  <view style='margin-left:120rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx' bindtap='delivery'>外卖信息</text></view>
+    <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx' bindtap='express'>快递信息</text></view>
+      <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx' bindtap='addFriend'>添加好友</text></view>
 </view>
 
 <view style='display:flex;flex-direction:row'>
@@ -40,3 +40,8 @@
     <view style='margin-left:30rpx;margin-top:10rpx;width:95%;height:100rpx;vertical-align: middle'><text style='font-size:25rpx'>{{item['description']}}</text></view>
   </view>
 </block>
+
+<view style="position:fixed;bottom:20rpx;right:25rpx;background:#f8f8f8;">
+  <!-- <van-icon bindtap='make_order' name="add-o" size='60rpx' /> -->
+  <image bindtap='make_order' src="/image/quick_order.png" style="width: 80rpx; height: 80rpx;" />
+</view>
