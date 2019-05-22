@@ -2,4 +2,4 @@
   <view style='margin-left:8rp'><text style='font-size:40rpx'>推荐有奖</text></view>
 </view>
 
-<image src="/image/推荐有奖.jpg" style='width:100%' mode='widthFix' />
+<image src="/image/recommend.jpg" style='width:100%' mode='widthFix' />

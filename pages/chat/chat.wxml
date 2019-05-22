@@ -1,7 +1,7 @@
 <view style="margin-left: 20rpx; background:#f9f9f9;">
   <van-row>
     <van-col span="6"><text style="font-size: 30rpx; font-weight: 900;font-family: serif;">好友列表</text></van-col>
-    <van-col offset="16"><image src="/image/添加.png" style="width: 40rpx; height: 40rpx;" bindtap='addFriend'></image></van-col>
+    <van-col offset="16"><image src="/image/add.png" style="width: 40rpx; height: 40rpx;" bindtap='addFriend'></image></van-col>
   </van-row>
 </view>
 

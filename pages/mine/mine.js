@@ -5,7 +5,7 @@ const app = getApp()
 Page({
   data: {
     profile: {
-      'photo': '/image/好友.png',
+      'photo': '/image/friend.png',
       'name': 'char',
       'phone': '132****0688'
     },

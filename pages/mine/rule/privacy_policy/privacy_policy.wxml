@@ -2,4 +2,4 @@
   <view style='margin-left:8rp'><text style='font-size:40rpx'>用户隐私政策</text></view>
 </view>
 
-<image src="/image/隐私政策.jpg" style='width:100%' mode='widthFix' />
+<image src="/image/privacy_policy.jpg" style='width:100%' mode='widthFix' />
