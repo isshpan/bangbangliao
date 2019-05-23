@@ -1,5 +1,5 @@
 <view style='background: #f8f8f8;'>
-  <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>修改地址</text></view>
+  <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>新增地址</text></view>
 </view>
 
 <form bindsubmit="formSubmit" bindreset="formReset">

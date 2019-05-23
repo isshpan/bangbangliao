@@ -20,7 +20,8 @@
     "pages/mine/recommend/recommend",
     "pages/order/accept/accept",
     "pages/chat/chatui/chatui",
-    "pages/order/make_order/make_order"
+    "pages/order/make_order/make_order",
+    "pages/address/add_address/add_address"
   ],
   "window": {
     "backgroundTextStyle": "light",
