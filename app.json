@@ -11,7 +11,6 @@
     "pages/order/canteen/canteen",
     "pages/order/expressInfo/expressInfo",
     "pages/order/addFriend/addFriend",
-    "pages/mine/personal/personal",
     "pages/mine/server_center/server_center",
     "pages/mine/feedback/feedback",
     "pages/mine/rule/rule",
