@@ -1,0 +1,50 @@
+<view style='background: #f8f8f8;'>
+  <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>新增地址</text></view>
+</view>
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view style="margin-top: 8rpx; background:#f8f8f8;">
+  <view style="padding:16rpx">
+    <van-row>
+     <van-col span="5"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">联系人</text></van-col>
+     <van-col>
+      <textarea name='contacts' class="textarea-bg" placeholder='请输入联系人' bindblur='getDataBindTap' auto-height />
+     </van-col>
+    </van-row>
+  </view>
+  <van-row gutter="20">
+    <van-col offset="7"><van-button plain type="{{male}}" size="small" bind:click="changeToMale">先生</van-button></van-col>
+    <van-col><van-button plain type="{{female}}" size="small" bind:click="changeToFemale">女士</van-button></van-col>
+  </van-row>
+  <view style="padding:16rpx">
+    <van-row>
+     <van-col span="5"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">电话</text></van-col>
+     <van-col>
+      <textarea name='tel' class="textarea-bg" placeholder='请输入手机号' bindblur='getDataBindTap' auto-height />
+     </van-col>
+    </van-row>
+  </view>
+  <view style="padding:16rpx">
+    <van-row>
+     <van-col span="5"><text style="font-size: 40rpx; font-family:Serif;font-weight:bold">地址</text></van-col>
+     <van-col>
+      <textarea name='address' class="textarea-bg" placeholder='请输入地址信息' bindblur='getDataBindTap' auto-height />
+     </van-col>
+    </van-row>
+  </view>
+  <view style="padding-bottom:16rpx">
+  <van-row gutter="20">
+    <van-col offset="7"><van-button plain type="{{dormitory}}" size="small" bind:click="changeToDormitory">宿舍</van-button></van-col>
+    <van-col><van-button plain type="{{classroom}}" size="small" bind:click="changeToClassroom">教室</van-button></van-col>
+    <van-col><van-button plain type="{{other}}" size="small" bind:click="changeToOther">其他</van-button></van-col>
+  </van-row>
+  </view>
+</view>
+
+<view style="margin-top: 8rpx;margin-left:20rpx">
+<van-row>
+  <van-col span="10" offset="1"><button type="warn" style='with:240rpx' size="samll" form-type="reset">取消</button></van-col>
+  <van-col span='10' offset='2'><button type="primary" size="small" form-type="submit" bindtap='okBack'>确定</button></van-col>
+</van-row>
+</view>
+</form>

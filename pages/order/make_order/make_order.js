@@ -3,80 +3,83 @@ Page({
 
   data: {
     requestInput: '',
-    aliasInput: ''
+    textInput: '',
+    express: 'default',
+    delivery:'warning',
+    addressInfo:[
+      {
+        'location': '宿舍',
+        'address': '女子小区6号楼',
+      },
+      {
+        'location': '教室',
+        'address': '信教2008',
+      }
+    ],
+    submit:{
+      lable: '',
+      order: '外卖',
+      text: '',
+      address: '',
+    }
   },
+
   clearRequestInput: function (options) {
     this.setData({
       'requestInput': ''
     })
   },
-  clearAliasInput: function (params) {
+
+  //按钮选择
+  changeToExpress: function () {
+    this.setData({ 
+      express: 'warning',
+      submit:{
+        order: '快递',
+      }
+    });
+    this.setData({ delivery: 'default' });
+  },
+
+  changeToDelivery: function () {
+    this.setData({ express: 'default' });
     this.setData({
-      'aliasInput': ''
+      delivery: 'warning',
+      submit: {order: '外卖'}
+    });
+  },
+
+  formSubmit(e) {
+    console.log('提交的表单信息为：', e.detail.value)
+    this.setData({
+      submit:{
+        lable: e.detail.value.标签,
+        order: this.data.submit['order'],
+        text: e.detail.value.正文,
+        address: e.detail.value.收货地址,
+      }
+    })
+    console.log(this.data.submit)
+  },
+
+  //发布弹窗提醒
+  modalcnt: function () {
+    wx.showModal({
+      title: '提示',
+      content: '确认发布？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          wx.navigateBack({
+            delta : 2
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+          wx.navigateTo({
+            url: '../make_order/make_order',
+          })
+        }
+      }
     })
   },
-
-  /*
-    获取输入内容
-    */
-  getDataBindTap: function (e) {
-    var result = e.detail.value;
-    console.log(result)
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

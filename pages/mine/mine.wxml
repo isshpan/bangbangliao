@@ -2,10 +2,12 @@
 <view style="background: #595959; height: 240rpx; padding-top: 80rpx;">
   <view>
     <van-row  bindtap='personal'>
-      <van-col span="4" offset="1"><image src="{{profile['photo']}}" style="width: 140rpx; height: 140rpx; color: white;"></image></van-col>
+      <van-col span="4" offset="1">
+      <open-data type="userAvatarUrl" style="width: 140rpx; height: 140rpx; color: white;"></open-data></van-col>
       <van-col span="8" offset="1">
-        <view style="margin-top: 20rpx; margin-left: 10rpx;"><text style="font-family: serif; font-size: 36rpx; font-weight: bold; color: white;">{{profile['name']}}</text></view>
-        <image src="/image/phone.png" style="width: 30rpx; height: 30rpx;"></image>
+        <view style="margin-top: 30rpx; margin-left: 10rpx;">
+            <open-data type="userNickName" style="font-family: serif; font-size: 36rpx; font-weight: bold; color: white;"></open-data>
+        </view>
         <text style="margin-left: 10rpx; font-family: serif; font-size: 30rpx; color: white;">{{profile['phone']}}</text>
       </van-col>
     </van-row>
@@ -40,7 +42,6 @@
 
 <cell-group style="background: #f9f9f9">
   <van-cell bindtap='address' title="收货地址" icon="location" is-link></van-cell>
-  <van-cell bindtap='personal' title="账号管理" icon="setting" is-link></van-cell>
   <van-cell bindtap='server_center' title="服务中心" icon="service" is-link></van-cell>
   <van-cell bindtap='feedback' title="帮助反馈" icon="question" is-link></van-cell>
   <van-cell bindtap='rule' title="规则中心" icon="column" is-link></van-cell>

@@ -1,11 +1,5 @@
 // pages/address/index.js
 Page({
-  edit_address: function (options) {
-    wx.navigateTo({
-      url: '../address/edit_address/edit_address',
-    })
-  },
-
   /**
    * 页面的初始数据
    */
@@ -26,5 +20,17 @@ Page({
         'address': '女子小区6号楼',
       }
     ]
-  }
+  },
+
+  edit_address: function (options) {
+    wx.navigateTo({
+      url: '../address/edit_address/edit_address',
+    })
+  },
+
+  add_address: function (options) {
+    wx.navigateTo({
+      url: '../address/add_address/add_address',
+    })
+  },
 })

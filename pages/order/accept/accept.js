@@ -1,6 +1,6 @@
 Page({
     data: {
-        profilePhoto: '/image/好友.png',
+      profilePhoto: '/image/friend.png',
         name: 'char',
         time: '4小时前',
         tag: '外卖',
