@@ -1,11 +1,10 @@
 /* pages/address/edit_address/edit_address.wxss */
-textarea {
+input {
   width: 495rpx;
-  height: 70rpx;
   margin-left: 30rpx;
 }
 /*输入框背景*/
-.textarea-bg {
+.input-bg {
   background-color: #ffffff;
   padding: 10rpx;
   font-size: 32rpx;

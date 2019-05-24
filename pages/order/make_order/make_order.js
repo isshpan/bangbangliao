@@ -50,7 +50,6 @@ Page({
   },
 
   formSubmit(e) {
-    console.log('提交的表单信息为：', e.detail.value)
     this.setData({
       submit:{
         lable: e.detail.value.标签,
@@ -59,7 +58,7 @@ Page({
         address: e.detail.value.收货地址,
       }
     })
-    console.log(this.data.submit)
+    console.log('提交的表单信息为：', this.data.submit)
   },
 
   //发布弹窗提醒
