@@ -1,8 +1,9 @@
+<form bindsubmit="formSubmit">
 <view style="margin-top: 30rpx; background: #f9f9f9; padding-left: 20rpx; padding-right: 20rpx;">
     <view style="color: gray">你需要发送验证申请，等对方通过</view>
     <view>
         <van-row>
-            <van-col span="22"><input value="{{requestInput}}" focus="true"></input></van-col>
+            <van-col span="22"><input name='验证内容' value="{{requestInput}}" focus="true"></input></van-col>
             <van-col>
                 <van-icon name="cross" style="color: gray" bindtap="clearRequestInput"></van-icon>
             </van-col>
@@ -15,7 +16,7 @@
     <view style="color: gray">为朋友设置备注</view>
     <view>
         <van-row>
-            <van-col span="22"><input value="{{aliasInput}}"></input></van-col>
+            <van-col span="22"><input name='备注' value="{{aliasInput}}"></input></van-col>
             <van-col>
                 <van-icon name="cross" style="color: gray" bindtap="clearAliasInput"></van-icon>
             </van-col>
@@ -24,4 +25,6 @@
     <view class="line"></view>
 </view>
 
-<view style="text-align: center; margin-top: 30rpx;"><button type="primary" style="width: 240rpx;" size="mini">发送</button></view>
+<view style="text-align: center; margin-top: 30rpx;"><button type="primary" style="width: 240rpx;" size="mini" form-type='submit' bindtap='success'>发送</button></view>
+
+</form>

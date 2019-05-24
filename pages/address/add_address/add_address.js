@@ -89,5 +89,10 @@ Page({
     wx.navigateBack({
       delta: 1
     })
+    wx.showToast({
+      title: '添加成功',
+      icon: 'success',
+      duration: 1000
+    }, 2000)
   }
 })
