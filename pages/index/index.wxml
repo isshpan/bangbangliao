@@ -1,3 +1,11 @@
+<dialog id='dialog' 
+      title='授权提醒' 
+      content='小程序需要您的授权以获取您的个人信息' 
+      confirmText='知道了'
+      bind:confirmEvent='confirmEvent'
+      bind:bindGetUserInfo='bindGetUserInfo'>
+</dialog>
+
 <swiper
   indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}"
@@ -11,7 +19,7 @@
     </swiper-item>
   </block>
 </swiper>
-<van-search value="{{ value }}" placeholder="搜索信息" />
+<van-search value="{{ value }}" placeholder="搜索信息" bind:search="onSearch" />
 <view style='display:flex;flex-direction:row'>
   <view style='margin-left:120rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="shop-o" size='100rpx' bindtap='delivery' /></view>
   <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="logistics" size='100rpx' bindtap='express' /></view>

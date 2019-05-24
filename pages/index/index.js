@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
   data: {
     infoList: [
@@ -61,4 +63,24 @@ Page({
       url: '../order/addFriend/addFriend',
     })
   },
+
+  //获取用户信息
+  onReady: function () {
+    //获得dialog组件
+    this.dialog = this.selectComponent("#dialog");
+  },
+
+  //对话框
+  showDialog: function () {
+    this.dialog.showDialog();
+  },
+
+  confirmEvent: function () {
+    this.dialog.hideDialog();
+  },
+
+  bindGetUserInfo: function (event) {
+    // 用户点击授权后，这里可以做一些登陆操作
+    app.globalData.userInfo = event.detail.event.detail.userInfo
+  }
 })
