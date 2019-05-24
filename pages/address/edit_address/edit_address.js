@@ -85,9 +85,14 @@ Page({
   },
 
   //确认后返回上一级
-  okBack:function(){
+  okBack:function() {
     wx.navigateBack({
       delta: 1
     })
+    wx.showToast({
+      title: '修改成功',
+      icon: 'success',
+      duration: 1000
+    }, 2000)
   }
 })
