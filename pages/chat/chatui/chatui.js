@@ -46,8 +46,8 @@ Page({
   data: {
     scrollHeight: '100vh',
     inputBottom: 0,
-    contHeadIcon: '/image/我的.png',
-    cusHeadIcon: '/image/我的.png'
+    contHeadIcon: '/image/friend.png',
+    cusHeadIcon: '/image/friend.png'
   },
 
   /**
@@ -55,9 +55,7 @@ Page({
    */
   onLoad: function(options) {
     initData(this);
-    this.setData({
-      cusHeadIcon: app.globalData.userInfo.avatarUrl,
-    });
+    
   },
 
   /**

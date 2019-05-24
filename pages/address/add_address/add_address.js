@@ -21,7 +21,6 @@ Page({
 
   //表单信息
   formSubmit(e) {
-    console.log('提交的表单信息为：', e.detail.value)
     this.setData({
       submit: {
         contacts: e.detail.value.contacts,
@@ -31,7 +30,7 @@ Page({
         location: this.data.submit['location'],
       }
     })
-    console.log(this.data.submit)
+    console.log('提交的表单信息为：', this.data.submit)
   },
 
   /*
@@ -89,5 +88,11 @@ Page({
     wx.navigateBack({
       delta: 1
     })
+    wx.showToast({
+      title: '添加成功',
+      icon: 'success',
+      duration: 1000
+    }, 2000)
+    console.log('地址修改成功');
   }
 })
