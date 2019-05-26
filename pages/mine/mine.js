@@ -1,3 +1,4 @@
+var connect = require('../../connect.js')
 //index.js
 //获取应用实例
 const app = getApp()
@@ -13,6 +14,10 @@ Page({
 
   onReady: function () {
 
+  },
+
+  onShow:function(){
+    connect.changeCount(this);
   },
 
   //转到收货地址页面

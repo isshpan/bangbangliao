@@ -1,3 +1,5 @@
+var connect = require('../../../connect.js');
+
 Page({
     data: {
         deliveryInfo: [
@@ -32,6 +34,12 @@ Page({
             }
         ]
     },
+
+    onShow:function(e){
+      this.setData({ deliveryInfo:[]});
+      connect.changePage(this,'快递');
+    },
+
     navigateToAccept: function () {
         wx.navigateTo({
             url: '../accept/accept'

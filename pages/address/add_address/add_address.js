@@ -1,3 +1,4 @@
+var connect = require('../../../connect.js')
 // pages/address/edit_address/edit_address.js
 Page({
 
@@ -31,6 +32,7 @@ Page({
       }
     })
     console.log('提交的表单信息为：', this.data.submit)
+    connect.addAddress(this.data.submit);
   },
 
   /*

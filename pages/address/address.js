@@ -1,3 +1,4 @@
+var connect = require('../../connect.js')
 // pages/address/index.js
 Page({
   /**
@@ -20,6 +21,13 @@ Page({
         'address': '女子小区6号楼',
       }
     ]
+  },
+
+  onShow:function(e){
+    this.setData({
+      'addressInfoList':[]
+    });
+    connect.changeAddressPage(this);
   },
 
   edit_address: function (options) {
