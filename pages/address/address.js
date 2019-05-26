@@ -7,6 +7,7 @@ Page({
   data: {
     'addressInfoList': [
       {
+        'id': 1,    //此处ID应为openID
         'name': 'char',
         'sex': '女士',
         'phone': '13269200688',
@@ -14,6 +15,7 @@ Page({
         'address': '信教1006',
       },
       {
+        'id': 2,    //此处ID应为openID
         'name': 'char',
         'sex': '女士',
         'phone': '13269200688',
@@ -30,9 +32,10 @@ Page({
     connect.changeAddressPage(this);
   },
 
-  edit_address: function (options) {
+  edit_address: function (e) {
+    console.log(e.currentTarget)
     wx.navigateTo({
-      url: '../address/edit_address/edit_address',
+      url: '../address/edit_address/edit_address?id=' + e.currentTarget.id,
     })
   },
 

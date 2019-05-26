@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      id: null,   //此处id自动被设置为address页面中的id
       male: 'info',
       female: 'default',
       dormitory: 'info',
@@ -18,6 +19,12 @@ Page({
         address:'',
         location:'宿舍',
       }
+  },
+
+  onLoad: function(id) {
+    //设置聊天界面ID
+    this.data.id = id;
+    console.log("ID of this page: " + this.data.id);
   },
 
   //表单信息
