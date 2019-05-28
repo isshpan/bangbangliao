@@ -16,14 +16,14 @@
 
 <view style="background:#f9f9f9; height: 200rpx;">
   <van-row style="margin: 80rpx;">
-    <van-col span="8">
+    <van-col span="8" bindtap="navigateToMyDelivery">
       <view style="text-align: center; font-family: serif; font-weight: bolder; color: #F19D38">
         <text style="font-size: 48rpx;">{{count['delivery']}}</text>
         <text style="font-size: 40rpx;">次</text>
       </view>
       <view style="margin: 10rpx; text-align: center; font-family: serif; font-size: 30rpx">外卖</view>
     </van-col>
-    <van-col span="8">
+    <van-col span="8" bindtap="navigateToMyExpress">
       <view style="text-align: center; font-family: serif; font-weight: bolder; color: #97C15B">
         <text style="font-size: 48rpx;">{{count['express']}}</text>
         <text style="font-size: 40rpx;">次</text>

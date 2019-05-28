@@ -38,16 +38,51 @@
   <view style='margin-left:0rpx;margin-top:20rpx;width:50rpx;height:50rpx;vertical-align: middle'><van-icon name="like-o" size='50rpx' /></view>
 </view>
 
-<block wx:for="{{infoList}}">
-  <view style='display:flex;flex-direction:row;background:#f8f8f8;margin-top:20rpx;flex-wrap:wrap'>
-    <view style='margin-left:30rpx;margin-top:20rpx;width:80rpx;height:80rpx;vertical-align: middle'><image src="{{item['image']}}" style='width:100%;height:100%'></image></view>
-    <view style='margin-left:30rpx;margin-top:20rpx;width: 100rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>{{item['time']}}</text></view>
-    <view style='margin-left:0rpx;margin-top:20rpx;width:150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>状态:{{item['state']}}</text></view>
-    <view style='margin-left:0rpx;margin-top:20rpx;width: 150rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>{{item['name']}}</text></view>
-    <view style='margin-left:0rpx;margin-top:20rpx;width:100rpx;height:30rpx;vertical-align: middle'><text style='font-size:20rpx'>标签:{{item['tag']}}</text></view>
-    <view style='margin-left:30rpx;margin-top:10rpx;width:95%;height:100rpx;vertical-align: middle'><text style='font-size:25rpx'>{{item['description']}}</text></view>
-  </view>
-</block>
+<view style="margin-bottom: 60rpx;">
+    <block wx:for="{{infoList}}">
+        <view style="margin: 20rpx 10rpx 0 10rpx; padding-bottom: 20rpx; background: #f9f9f9;">
+            <van-row>
+                <van-col span="2">
+                    <image src="{{item['image']}}" style="width: 90rpx; height: 90rpx;"></image>
+                </van-col>
+                <van-col offset="2" span="2">
+                    <view style="font-family: serif; font-size: 24rpx; font-weight: 300; margin-top: 30rpx;">{{item['name']}}</view>
+                </van-col>
+                <van-col offset="2" span="3">
+                    <view style="font-family: serif; font-size: 24rpx; font-weight: 300; margin-top: 30rpx;">{{item['time']}}</view>
+                </van-col>
+                <van-col offset="3" span="4">
+                    <view style="font-family: serif; font-size: 24rpx; font-weight: 300; margin-top: 30rpx;">
+                        <text>标签：</text>
+                        <text>{{item['tag']}}</text>
+                    </view>
+                </van-col>
+                <van-col offset="1" span="5">
+                    <view style="font-family: serif; font-size: 24rpx; font-weight: 300; margin-top: 30rpx;">
+                        <text>状态：</text>
+                        <text>{{item['state']}}</text>
+                    </view>
+                </van-col>
+            </van-row>
+
+            <van-row>
+                <view style="margin: 0 36rpx 40rpx 16rpx;">
+                    <text
+                        style="font-family: serif; font-size: 24rpx; line-height: 8rpx;">{{item['description']}}</text>
+                </view>
+            </van-row>
+
+            <van-row style="text-align: center;">
+                <van-col offset="4" span="6">
+                    <button id="{{item['id']}}" type="default" size="mini" style="width: 100%; font-weight: 500;" bindtap="navigateToAccept">接单</button>
+                </van-col>
+                <van-col offset="4" span="6">
+                    <button id="{{item['id']}}" type="default" size="mini" style="width: 100%; font-weight: 500;" bindtap="navigateToAddFriend">加好友</button>
+                </van-col>
+            </van-row>
+        </view>
+    </block>
+</view>
 
 <view style="position:fixed;bottom:20rpx;right:25rpx;background:#f8f8f8;">
   <!-- <van-icon bindtap='make_order' name="add-o" size='60rpx' /> -->

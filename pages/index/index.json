@@ -2,6 +2,9 @@
   "usingComponents": {
     "van-search": "/lib/vant-weapp/dist/search/index",
     "van-icon": "/lib/vant-weapp/dist/icon/index",
-    "dialog": "/components/dialog/dialog"
+    "dialog": "/components/dialog/dialog",
+    "van-row": "/lib/vant-weapp/dist/row/index",
+    "van-col": "/lib/vant-weapp/dist/col/index",
+    "van-button": "/lib/vant-weapp/dist/button/index"
   }
 }

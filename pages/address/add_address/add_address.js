@@ -87,14 +87,26 @@ Page({
 
   //确认后返回上一级
   okBack: function () {
-    wx.navigateBack({
-      delta: 1
-    })
-    wx.showToast({
-      title: '添加成功',
-      icon: 'success',
-      duration: 1000
-    }, 2000)
-    console.log('地址修改成功');
+    if (this.data.submit['contacts'] == '' || this.data.submit['tel'] == '' || this.data.submit['address'] == '')
+    {
+      wx.showToast({
+        title: '存在未填信息',
+        icon: 'none',
+        duration: 1000
+      }, 2000)
+      console.log('存在未填信息');
+    }
+    else
+    {
+      wx.navigateBack({
+        delta: 1
+      })
+      wx.showToast({
+        title: '添加成功',
+        icon: 'success',
+        duration: 1000
+      }, 2000)
+      console.log('地址添加成功');
+    }
   }
 })
