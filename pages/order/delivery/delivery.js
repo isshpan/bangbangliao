@@ -67,8 +67,6 @@ Page({
             url: '../make_order/make_order',
         })
     },
-<<<<<<< Updated upstream
-=======
   //下拉刷新
   onPullDownRefresh: function () {
     setTimeout(function () {
@@ -77,5 +75,4 @@ Page({
     }, 1500);
     console.log("下拉刷新")
   },
->>>>>>> Stashed changes
 })

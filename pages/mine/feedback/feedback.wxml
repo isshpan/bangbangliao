@@ -4,11 +4,7 @@
 </view>
 
 <view style='margin-top:16rpx;margin-left:5%;margin-right:5%;border:3rpx solid #aaa;height:250rpx'>
-<<<<<<< Updated upstream
-  <textarea name='advice' class="textarea-bg" placeholder='请留下您宝贵得意见或建议，我们将努力改进（不少于9个字）' auto-height />
-=======
   <textarea name='advice' class="textarea-bg" placeholder='请留下您宝贵得意见或建议，我们将努力改进（不少于9个字）' bindblur='getDataBindTap' auto-height />
->>>>>>> Stashed changes
 </view>
 
 <view style='margin-top:32rpx;margin-left:5%;margin-right:5%;border:3rpx solid #aaa;'>
