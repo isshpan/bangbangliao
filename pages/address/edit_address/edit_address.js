@@ -12,33 +12,27 @@ Page({
       dormitory: 'info',
       classroom: 'default',
       other: 'default',
+      sex:'先生',
+      location:'宿舍',
       submit:{
         contacts:'',
-        sex:'先生',
         tel:'',
         address:'',
-        location:'宿舍',
       }
-  },
-
-  onLoad: function(id) {
-    //设置聊天界面ID
-    this.data.id = id;
   },
 
   //表单信息
   formSubmit(e) {
+    console.log(this.data);
     this.setData({
       submit:{
         contacts: e.detail.value.contacts,
-        sex: this.data.submit['sex'],
         tel: e.detail.value.tel,
         address: e.detail.value.address,
-        location: this.data.submit['location'],
       }
-    })
-    console.log('提交的表单信息为：', this.data.submit)
-    connect.changeAddress(this.data.submit);
+    });
+    console.log('提交的表单信息为：', this.data)
+    connect.changeAddress(this.data);
   },
 
   /*
@@ -51,7 +45,7 @@ Page({
   changeToMale: function () {
     this.setData({
       male: 'info',
-      submit:{sex:'先生'}
+      sex:'先生'
     });
     this.setData({female: 'default'});
   },
@@ -60,14 +54,14 @@ Page({
     this.setData({male: 'default'});
     this.setData({
       female: 'info',
-      submit: { sex: '女士' }
+      sex: '女士'
     });
   },
 
   changeToDormitory: function () {
     this.setData({
       dormitory: 'info',
-      submit: { location: '宿舍' }
+      location: '宿舍' 
     });
     this.setData({classroom: 'default'});
     this.setData({other: 'default'});
@@ -77,7 +71,7 @@ Page({
     this.setData({dormitory: 'default'});
     this.setData({
       classroom: 'info',
-      submit: { location: '教室' }
+      location: '教室' 
     });
     this.setData({other: 'default'});
   },
@@ -87,7 +81,7 @@ Page({
     this.setData({classroom: 'default'});
     this.setData({
       other: 'info',
-      submit: { location: '其他' }
+      location: '其他' 
     });
   },
 

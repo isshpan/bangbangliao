@@ -6,6 +6,7 @@ var userTable = null;
 var chatTable = null;
 var addressTable = null;
 var userOpenid = null;
+var currentTabIndex = null;
 var info = {
   name : null,
   avatarUrl:null,
@@ -129,16 +130,19 @@ function changeOrderPage(that,tag)
   else num = 1;
   return getOrderData(true, num, null).then
   (res => {
-    console.log(res.data);
+    // console.log(res.data);
     var arr = that.data.deliveryInfo;
     var promises = [];
     for (var i = 0; i < res.data.length; i++) 
     {
       var p = examHasUserAndReturn2(res.data[i].wxNumber,res.data[i]).then(res => 
         {
+          console.log(res);
           var timeStr = formatTime(res.data.time);
           var t = res.data.text;
           arr.push({
+            'id':res.data._id,
+            'ownerId':res.data.wxNumber,
             'profilePhoto': res.personData.data[0].avatar,
             'name': res.personData.data[0].name,
             'time': timeStr,
@@ -148,7 +152,8 @@ function changeOrderPage(that,tag)
           });
         });
       promises.push(p);
-    }
+    };
+    console.log(arr);
       Promise.all(promises).then(
         res => {
         that.setData({
@@ -169,16 +174,21 @@ function changeRecommendPage(that) {
           var timeStr = formatTime(res.data.time);
           var t = res.data.text;
           var tag = null;
+          var status = '未领取';
+          if(res.data.status==0)
+              status = '未领取';
+          else status = '已领取';
           if(res.data.lable==0)
             tag = '宿舍';
           else
             tag = '教室';
           arr.push({
+            'id':res.personData.data[0]._id,
             'image': res.personData.data[0].avatar,
             'name': res.personData.data[0].name,
             'time': timeStr,
             'tag': tag,
-            'state': '未领取',
+            'state': status,
             'description': t
           });
         });
@@ -250,8 +260,6 @@ function changeCount(that) {
     var orderNum = 0;
     var friendNum = 0;
     var expressNum = 0;
-    console.log(res);
-
     for (var i = 0; i < res.result.data.length; i++) {
       if (res.result.data[i].lable == null) continue;
       if (res.result.data[i].lable == 0) {
@@ -276,9 +284,7 @@ function getAllAddress(){
 
 function changeAddressPage(that){
   getAllAddress().then(res=>{
-    console.log(res);
     var arr = that.data.addressInfoList;
-    console.log(arr);
     var gender = null;
     var location = null;
     for(var i = 0;i<res.data.length;i++){
@@ -293,6 +299,7 @@ function changeAddressPage(that){
         location = '教室';
       }
       arr.push({
+        'id':res.data[i]._id,
         'name':info.name,
         'sex':gender,
         'phone':res.data[i].phoneNumber,
@@ -360,14 +367,51 @@ function changeAddress(data){
     location = 0;
   else
     location = 1;
-  return addressTable.where({wxNumber:getOpenid()}).update({
+  console.log(currentTabIndex,data);
+  return addressTable.doc(currentTabIndex).update({
     data: {
-      'wxNumber': getOpenid(),
       'sex': sex,
-      'phoneNumber': data.tel,
+      'phoneNumber': data.submit.tel,
       'lable': location,
-      'address': data.address
-    }});
+      'address': data.submit.address
+    },
+    success:function(res){
+      console.log(res);
+    },
+    fail:function(res){
+      console.log(res);
+    }
+    });
+}
+
+function changeTabIndex(index){
+  currentTabIndex = index;
+}
+
+function acceptOrder(){
+  wx.cloud.callFunction({
+    name: 'updateOrder',
+    data:{
+      id:currentTabIndex,
+      receiver:getOpenid()
+    }    
+  }).then();
+}
+
+function addFriend(){
+  friendTable.add({
+    data:{
+      'wxNumber':getOpenid(),
+      'fwxNumber':currentTabIndex
+    }
+  });
+  friendTable.add({
+    data: {
+      'wxNumber': currentTabIndex,
+      'fwxNumber': getOpenid() 
+    }
+  });
+
 }
 
 module.exports = {
@@ -383,7 +427,10 @@ module.exports = {
   addAddress: addAddress,
   changeAddress:changeAddress,
   changeAddressTab: changeAddressTab,
-  changeRecommendPage: changeRecommendPage
+  changeRecommendPage: changeRecommendPage,
+  changeTabIndex:changeTabIndex,
+  addFriend:addFriend,
+  acceptOrder:acceptOrder
 }
 
 
