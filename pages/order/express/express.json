@@ -4,5 +4,7 @@
     "van-col": "/lib/vant-weapp/dist/col/index",
     "van-button": "/lib/vant-weapp/dist/button/index"
   },
-  "navigationBarTitleText": "快递订单"
+  "navigationBarTitleText": "快递订单",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

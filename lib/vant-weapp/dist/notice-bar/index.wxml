@@ -14,7 +14,7 @@
   />
 
   <view class="van-notice-bar__wrap">
-    <view class="van-notice-bar__content {{ !scrollable && !wrapable ? 'van-ellipsis' : '' }}" animation="{{ animationData }}">
+    <view class="van-notice-bar__content {{ !scrollabel && !wrapable ? 'van-ellipsis' : '' }}" animation="{{ animationData }}">
       {{ text }}
     </view>
   </view>

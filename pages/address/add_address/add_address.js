@@ -22,17 +22,20 @@ Page({
 
   //表单信息
   formSubmit(e) {
-    this.setData({
-      submit: {
-        contacts: e.detail.value.contacts,
-        sex: this.data.submit['sex'],
-        tel: e.detail.value.tel,
-        address: e.detail.value.address,
-        location: this.data.submit['location'],
-      }
-    })
-    console.log('提交的表单信息为：', this.data.submit)
-    connect.addAddress(this.data.submit);
+    var temp = e.detail.value;
+    if (temp.contacts != '' && temp.tel != '' && temp.address != '') {
+      this.setData({
+        submit: {
+          contacts: e.detail.value.contacts,
+          sex: this.data.submit['sex'],
+          tel: e.detail.value.tel,
+          address: e.detail.value.address,
+          location: this.data.submit['location'],
+        }
+      })
+      //console.log('提交的表单信息为：', this.data.submit)
+      connect.addAddress(this.data.submit);
+    }
   },
 
   /*
@@ -87,17 +90,15 @@ Page({
 
   //确认后返回上一级
   okBack: function () {
-    if (this.data.submit['contacts'] == '' || this.data.submit['tel'] == '' || this.data.submit['address'] == '')
-    {
+    if (this.data.submit['contacts'] == '' || this.data.submit['tel'] == '' || this.data.submit['address'] == '') {
       wx.showToast({
         title: '存在未填信息',
         icon: 'none',
         duration: 1000
       }, 2000)
-      console.log('存在未填信息');
+      //console.log('存在未填信息');
     }
-    else
-    {
+    else {
       wx.navigateBack({
         delta: 1
       })
@@ -106,7 +107,7 @@ Page({
         icon: 'success',
         duration: 1000
       }, 2000)
-      console.log('地址添加成功');
+      //console.log('地址添加成功');
     }
   }
 })

@@ -49,14 +49,14 @@ Page({
 
   navigateToAccept: function (e) {
     //e.currentTarget.id 为 deliveryInfo 中的id
-    console.log(e.currentTarget.id);
+    //console.log(e.currentTarget.id);
     wx.navigateTo({
       url: '../order/accept/accept'
     })
   },
   navigateToAddFriend: function (e) {
     //e.currentTarget.id 为 deliveryInfo 中的id
-    console.log(e.currentTarget.id);
+    //console.log(e.currentTarget.id);
     wx.navigateTo({
       url: '../order/addFriend/addFriend'
     })
@@ -110,5 +110,14 @@ Page({
     // 用户点击授权后，这里可以做一些登陆操作
     app.globalData.userInfo = event.detail.event.detail.userInfo;
     connect.initUserData();
-  }
+  },
+
+  //下拉刷新
+  onPullDownRefresh: function () {
+    setTimeout(function () {
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
+    //console.log("下拉刷新")
+  },
 })

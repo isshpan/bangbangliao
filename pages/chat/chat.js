@@ -36,7 +36,7 @@ Page({
   },
   navigateToChatUI: function (e) {
     //e.currentTarget.id 为 chatInfoList 中的id
-    console.log(e.currentTarget.id);
+    //console.log(e.currentTarget.id);
     wx.navigateTo({
       url: './chatui/chatui?id=' + e.currentTarget.id
       

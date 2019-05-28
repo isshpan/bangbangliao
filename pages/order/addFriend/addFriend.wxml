@@ -3,7 +3,7 @@
     <view style="color: gray">你需要发送验证申请，等对方通过</view>
     <view>
         <van-row>
-            <van-col span="22"><input name='验证内容' value="{{requestInput}}" focus="true"></input></van-col>
+            <van-col span="22"><input name='text' value="{{requestInput}}" focus="true"></input></van-col>
             <van-col>
                 <van-icon name="cross" style="color: gray" bindtap="clearRequestInput"></van-icon>
             </van-col>
@@ -16,7 +16,7 @@
     <view style="color: gray">为朋友设置备注</view>
     <view>
         <van-row>
-            <van-col span="22"><input name='备注' value="{{aliasInput}}"></input></van-col>
+            <van-col span="22"><input name='friend_name' value="{{aliasInput}}"></input></van-col>
             <van-col>
                 <van-icon name="cross" style="color: gray" bindtap="clearAliasInput"></van-icon>
             </van-col>

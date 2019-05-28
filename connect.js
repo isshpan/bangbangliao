@@ -6,6 +6,7 @@ var userTable = null;
 var chatTable = null;
 var addressTable = null;
 var userOpenid = null;
+var currentTabIndex = null;
 var info = {
   name : null,
   avatarUrl:null,
@@ -15,7 +16,7 @@ var info = {
 
 //用于初始化云函数并返回Openid
 function initAndGetOpenId() {
-    console.log("happen");
+    //console.log("happen");
     wx.cloud.init({
       env: 'bit-bbl1-ln1i2'
     });
@@ -53,7 +54,7 @@ function examHasUserAndReturn2(openid,data){
 function initUserData(){
   var id = getOpenid();
   var app = getApp();
-  console.log(app.globalData.userInfo);
+  //console.log(app.globalData.userInfo);
   var userInfo = app.globalData.userInfo;
   if(userInfo!=null){
     info.name = userInfo.nickName;
@@ -83,10 +84,10 @@ function insertUserData(id,userInfo){
       avatar: userInfo.avatarUrl
     },
     success: function (res) {
-      console.log('插入成功', res);
+      //console.log('插入成功', res);
     },
     fail: function (res) {
-      console.log('插入失败', res);
+      //console.log('插入失败', res);
     }
   });
 }
@@ -100,17 +101,17 @@ function changeUserData(id,userInfo){
       avatar: userInfo.avatarUrl
     },
     success: function (res) {
-      console.log('插入成功', res);
+      //console.log('插入成功', res);
     },
     fail: function (res) {
-      console.log('插入失败', res);
+      //console.log('插入失败', res);
     }
   });
 }
 
 function getOrderData(free,tag = 0,openid){
   if(free){
-    return orderTable.where({status:0,lable:tag}).get();
+    return orderTable.where({status:0,label:tag}).get();
   }
   else{
     return orderTable.where({wxNumber:openid}).get();
@@ -129,16 +130,19 @@ function changeOrderPage(that,tag)
   else num = 1;
   return getOrderData(true, num, null).then
   (res => {
-    console.log(res.data);
+    // //console.log(res.data);
     var arr = that.data.deliveryInfo;
     var promises = [];
     for (var i = 0; i < res.data.length; i++) 
     {
       var p = examHasUserAndReturn2(res.data[i].wxNumber,res.data[i]).then(res => 
         {
+          //console.log(res);
           var timeStr = formatTime(res.data.time);
           var t = res.data.text;
           arr.push({
+            'id':res.data._id,
+            'ownerId':res.data.wxNumber,
             'profilePhoto': res.personData.data[0].avatar,
             'name': res.personData.data[0].name,
             'time': timeStr,
@@ -148,7 +152,8 @@ function changeOrderPage(that,tag)
           });
         });
       promises.push(p);
-    }
+    };
+    //console.log(arr);
       Promise.all(promises).then(
         res => {
         that.setData({
@@ -169,16 +174,21 @@ function changeRecommendPage(that) {
           var timeStr = formatTime(res.data.time);
           var t = res.data.text;
           var tag = null;
-          if(res.data.lable==0)
+          var status = '未领取';
+          if(res.data.status==0)
+              status = '未领取';
+          else status = '已领取';
+          if(res.data.label==0)
             tag = '宿舍';
           else
             tag = '教室';
           arr.push({
+            'id':res.personData.data[0]._id,
             'image': res.personData.data[0].avatar,
             'name': res.personData.data[0].name,
             'time': timeStr,
             'tag': tag,
-            'state': '未领取',
+            'state': status,
             'description': t
           });
         });
@@ -201,7 +211,7 @@ function formatTime(date){
   var day = date.getDate();
   var hour = date.getHours();
   var minute = date.getMinutes();
-  console.log(date,year,month,day,hour,minute);
+  //console.log(date,year,month,day,hour,minute);
   var now = new Date();
   if (now.getFullYear() == year && now.getMonth() == month - 1 && now.getDate()==day){
     var ans = now.getHours() - hour;
@@ -221,20 +231,20 @@ function addOrderData(address,order,text){
     myOrder = 0;
   else
     myOrder = 1;
-  console.log(address,order,text);
+  //console.log(address,order,text);
   var ad = address;
   var te = text;
   orderTable.add({
     data:{
       address: ad,
-      lable: myOrder,
+      label: myOrder,
       text: te,
       status: 0,
       time: new Date(),
       wxNumber: getOpenid(),
     },
     success:function(res){
-      console.log(res);
+      //console.log(res);
     }
   });
 }
@@ -250,11 +260,9 @@ function changeCount(that) {
     var orderNum = 0;
     var friendNum = 0;
     var expressNum = 0;
-    console.log(res);
-
     for (var i = 0; i < res.result.data.length; i++) {
-      if (res.result.data[i].lable == null) continue;
-      if (res.result.data[i].lable == 0) {
+      if (res.result.data[i].label == null) continue;
+      if (res.result.data[i].label == 0) {
         orderNum++;
       }
       else
@@ -276,9 +284,7 @@ function getAllAddress(){
 
 function changeAddressPage(that){
   getAllAddress().then(res=>{
-    console.log(res);
     var arr = that.data.addressInfoList;
-    console.log(arr);
     var gender = null;
     var location = null;
     for(var i = 0;i<res.data.length;i++){
@@ -287,12 +293,13 @@ function changeAddressPage(that){
       }else{
         gender = '女士';
       }
-      if (res.data[i].lable == 0) {
+      if (res.data[i].label == 0) {
         location = '宿舍';
       } else {
         location = '教室';
       }
       arr.push({
+        'id':res.data[i]._id,
         'name':info.name,
         'sex':gender,
         'phone':res.data[i].phoneNumber,
@@ -311,7 +318,7 @@ function changeAddressTab(that){
   getAllAddress().then(res=>{
     var location = null;
     for (var i = 0; i < res.data.length; i++) {
-      if (res.data[i].lable == 0) {
+      if (res.data[i].label == 0) {
         location = '宿舍';
       } else {
         location = '教室';
@@ -343,7 +350,7 @@ function addAddress(data){
       'wxNumber': getOpenid(),
       'sex': sex,
       'phoneNumber': data.tel,
-      'lable': location,
+      'label': location,
       'address': data.address
     }
   });
@@ -360,14 +367,51 @@ function changeAddress(data){
     location = 0;
   else
     location = 1;
-  return addressTable.where({wxNumber:getOpenid()}).update({
+  //console.log(currentTabIndex,data);
+  return addressTable.doc(currentTabIndex).update({
     data: {
-      'wxNumber': getOpenid(),
       'sex': sex,
-      'phoneNumber': data.tel,
-      'lable': location,
-      'address': data.address
-    }});
+      'phoneNumber': data.submit.tel,
+      'label': location,
+      'address': data.submit.address
+    },
+    success:function(res){
+      //console.log(res);
+    },
+    fail:function(res){
+      //console.log(res);
+    }
+    });
+}
+
+function changeTabIndex(index){
+  currentTabIndex = index;
+}
+
+function acceptOrder(){
+  wx.cloud.callFunction({
+    name: 'updateOrder',
+    data:{
+      id:currentTabIndex,
+      receiver:getOpenid()
+    }    
+  }).then();
+}
+
+function addFriend(){
+  friendTable.add({
+    data:{
+      'wxNumber':getOpenid(),
+      'fwxNumber':currentTabIndex
+    }
+  });
+  friendTable.add({
+    data: {
+      'wxNumber': currentTabIndex,
+      'fwxNumber': getOpenid() 
+    }
+  });
+
 }
 
 module.exports = {
@@ -383,7 +427,10 @@ module.exports = {
   addAddress: addAddress,
   changeAddress:changeAddress,
   changeAddressTab: changeAddressTab,
-  changeRecommendPage: changeRecommendPage
+  changeRecommendPage: changeRecommendPage,
+  changeTabIndex:changeTabIndex,
+  addFriend:addFriend,
+  acceptOrder:acceptOrder
 }
 
 
