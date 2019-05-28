@@ -1,3 +1,4 @@
+var connect = require('./connect.js');
 //app.js
 App({
   globalData: {
@@ -6,7 +7,7 @@ App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
+    logs.unshift(Date.now());
     wx.setStorageSync('logs', logs)
 
     // 登录
@@ -14,6 +15,9 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
-    })
+    });
+
+    connect.initAndGetOpenId();
+
   }
 })

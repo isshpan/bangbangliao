@@ -44,6 +44,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id: null,  //此处ID因为唯一标识ID（openID？）
     scrollHeight: '100vh',
     inputBottom: 0,
     contHeadIcon: '/image/friend.png',
@@ -53,9 +54,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function(id) {
     initData(this);
-    
+    //设置聊天界面ID
+    this.data.id = id;
   },
 
   /**

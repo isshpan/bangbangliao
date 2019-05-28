@@ -1,3 +1,4 @@
+var connect = require('../../../connect.js');
 // pages/address/edit_address/edit_address.js
 Page({
 
@@ -5,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      id: null,   //此处id自动被设置为address页面中的id
       male: 'info',
       female: 'default',
       dormitory: 'info',
@@ -19,6 +21,11 @@ Page({
       }
   },
 
+  onLoad: function(id) {
+    //设置聊天界面ID
+    this.data.id = id;
+  },
+
   //表单信息
   formSubmit(e) {
     this.setData({
@@ -31,6 +38,7 @@ Page({
       }
     })
     console.log('提交的表单信息为：', this.data.submit)
+    connect.changeAddress(this.data.submit);
   },
 
   /*

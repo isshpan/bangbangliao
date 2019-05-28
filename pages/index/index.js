@@ -1,4 +1,5 @@
-const app = getApp()
+const app = getApp();
+var connect = require('../../connect.js');
 
 Page({
   data: {
@@ -64,6 +65,10 @@ Page({
     })
   },
 
+  onShow:function(){
+    connect.changeRecommendPage(this);
+  },
+
   //获取用户信息
   onReady: function () {
     //获得dialog组件
@@ -81,6 +86,7 @@ Page({
 
   bindGetUserInfo: function (event) {
     // 用户点击授权后，这里可以做一些登陆操作
-    app.globalData.userInfo = event.detail.event.detail.userInfo
+    app.globalData.userInfo = event.detail.event.detail.userInfo;
+    connect.initUserData();
   }
 })

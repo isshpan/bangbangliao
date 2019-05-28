@@ -1,3 +1,4 @@
+var connect = require('../../connect.js')
 // pages/address/index.js
 Page({
   /**
@@ -6,6 +7,7 @@ Page({
   data: {
     'addressInfoList': [
       {
+        'id': 1,    //此处ID应为openID
         'name': 'char',
         'sex': '女士',
         'phone': '13269200688',
@@ -13,6 +15,7 @@ Page({
         'address': '信教1006',
       },
       {
+        'id': 2,    //此处ID应为openID
         'name': 'char',
         'sex': '女士',
         'phone': '13269200688',
@@ -22,9 +25,18 @@ Page({
     ]
   },
 
-  edit_address: function (options) {
+  onShow:function(e){
+    // this.setData({
+    //   'addressInfoList':[]
+    // });
+    // connect.changeAddressPage(this);
+  },
+
+  edit_address: function (e) {
+    //e.currentTarget.id 为 addressInfoList 中的id
+    console.log(e.currentTarget.id)
     wx.navigateTo({
-      url: '../address/edit_address/edit_address',
+      url: '../address/edit_address/edit_address?id=' + e.currentTarget.id,
     })
   },
 
