@@ -72,5 +72,17 @@ Page({
     
   },
   getUserInfo: function (e) {
-  }
+  },
+
+  navigateToMyDelivery: function () {
+    wx.navigateTo({
+      url: '../order/delivery/delivery'
+    })
+  },
+
+  navigateToMyExpress: function () {
+    wx.navigateTo({
+      url: '../order/express/express'
+    })
+  },
 })
