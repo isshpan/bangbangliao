@@ -24,7 +24,6 @@ Page({
   onLoad: function(id) {
     //设置聊天界面ID
     this.data.id = id;
-    console.log("ID of this page: " + this.data.id);
   },
 
   //表单信息
