@@ -65,4 +65,12 @@ Page({
       url: '../make_order/make_order',
     })
   },
+  //下拉刷新
+  onPullDownRefresh: function () {
+    setTimeout(function () {
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
+    console.log("下拉刷新")
+  },
 })
