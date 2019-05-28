@@ -34,7 +34,7 @@ Page({
 
   edit_address: function (e) {
     //e.currentTarget.id 为 addressInfoList 中的id
-    console.log(e.currentTarget.id);
+    //console.log(e.currentTarget.id);
     connect.changeTabIndex(e.currentTarget.id);
     wx.navigateTo({
       url: '../address/edit_address/edit_address?id=' + e.currentTarget.id,

@@ -48,7 +48,7 @@ Page({
 
     navigateToAccept: function (e) {
         //e.currentTarget.id 为 deliveryInfo 中的id
-        console.log(e.currentTarget.id);
+        //console.log(e.currentTarget.id);
       connect.changeTabIndex(e.currentTarget.id);
       connect.acceptOrder();
         wx.navigateTo({
@@ -57,7 +57,7 @@ Page({
     },
     navigateToAddFriend: function (e) {
         //e.currentTarget.id 为 deliveryInfo 中的id
-      console.log(e.currentTarget.id);
+      //console.log(e.currentTarget.id);
       connect.changeTabIndex(e.currentTarget.ownerId);
       connect.addFriend();
         wx.navigateTo({

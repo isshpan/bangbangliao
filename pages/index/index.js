@@ -49,14 +49,14 @@ Page({
 
   navigateToAccept: function (e) {
     //e.currentTarget.id 为 deliveryInfo 中的id
-    console.log(e.currentTarget.id);
+    //console.log(e.currentTarget.id);
     wx.navigateTo({
       url: '../order/accept/accept'
     })
   },
   navigateToAddFriend: function (e) {
     //e.currentTarget.id 为 deliveryInfo 中的id
-    console.log(e.currentTarget.id);
+    //console.log(e.currentTarget.id);
     wx.navigateTo({
       url: '../order/addFriend/addFriend'
     })
@@ -118,6 +118,6 @@ Page({
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
     }, 1500);
-    console.log("下拉刷新")
+    //console.log("下拉刷新")
   },
 })

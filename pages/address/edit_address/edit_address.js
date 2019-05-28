@@ -23,16 +23,20 @@ Page({
 
   //表单信息
   formSubmit(e) {
-    console.log(this.data);
-    this.setData({
-      submit:{
-        contacts: e.detail.value.contacts,
-        tel: e.detail.value.tel,
-        address: e.detail.value.address,
-      }
-    });
-    console.log('提交的表单信息为：', this.data)
-    connect.changeAddress(this.data);
+    //console.log(this.data);
+    
+    if (e.detail.value.contacts != '' && e.detail.value.tel != '' && e.detail.value.address != '')
+    {
+        this.setData({
+            submit: {
+                contacts: e.detail.value.contacts,
+                tel: e.detail.value.tel,
+                address: e.detail.value.address,
+            }
+        });
+        //console.log('提交的表单信息为：', this.data)
+        connect.changeAddress(this.data);
+    }
   },
 
   /*
@@ -93,7 +97,7 @@ Page({
         icon: 'none',
         duration: 1000
       }, 2000)
-      console.log('存在未填信息');
+      //console.log('存在未填信息');
     }
     else {
       wx.navigateBack({
@@ -104,7 +108,7 @@ Page({
         icon: 'success',
         duration: 1000
       }, 2000)
-      console.log('地址修改成功');
+      //console.log('地址修改成功');
     }
   }
 })

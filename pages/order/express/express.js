@@ -42,12 +42,12 @@ Page({
   onShow: function (e) {
     this.setData({ deliveryInfo: [] });
     connect.changePage(this, '快递');
-    console.log(this.data.deliveryInfo);
+    //console.log(this.data.deliveryInfo);
   },
 
   navigateToAccept: function (e) {
     //e.currentTarget.id 为 deliveryInfo 中的id
-    console.log(e.currentTarget.id);
+    //console.log(e.currentTarget.id);
     connect.changeTabIndex(e.currentTarget.id);
     connect.acceptOrder();
     wx.navigateTo({
@@ -56,7 +56,7 @@ Page({
   },
   navigateToAddFriend: function (e) {
     //e.currentTarget.id 为 deliveryInfo 中的id
-    console.log(e.currentTarget.id);
+    //console.log(e.currentTarget.id);
     connect.changeTabIndex(e.currentTarget.ownerId);
     connect.addFriend();
     wx.navigateTo({
@@ -76,6 +76,6 @@ Page({
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
     }, 1500);
-    console.log("下拉刷新")
+    //console.log("下拉刷新")
   },
 })
