@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    submit:{
+      advice:'',
+      tel:'',
+    }
   },
 
   /*
@@ -14,6 +17,40 @@ Page({
   getDataBindTap: function (e) {
     var result = e.detail.value;
     console.log(result)
+  },
+
+  formSubmit(e) {
+    this.setData({
+      submit: {
+        advice:e.detail.value.advice,
+        tel:e.detail.value.tel,
+      }
+    })
+    console.log('提交的表单信息为：', this.data.submit);
+  },
+
+  //确认后返回上一级
+  okBack: function () {
+    if (this.data.submit['advice'] == '' || this.data.submit['tel'] == '') {
+      wx.showToast({
+        title: '存在未填信息',
+        icon: 'none',
+        duration: 1000
+      }, 2000)
+      console.log('存在未填信息');
+    }
+    else 
+    {
+      wx.navigateBack({
+        delta: 1
+      })
+      wx.showToast({
+        title: '反馈成功',
+        icon: 'success',
+        duration: 1000
+      }, 2000)
+      console.log('信息反馈成功');
+    }
   },
 
   /**

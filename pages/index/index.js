@@ -5,6 +5,7 @@ Page({
   data: {
     infoList: [
       {
+        'id': 1,
         'image': '/image/home.jpg',
         'time': '4小时前',
         'state': '已领取',
@@ -13,6 +14,7 @@ Page({
         'description': '有没有人啊，幺二四啦！求带七食堂照烧鸡排饭！地址：女子小区(接头地点私聊把)'
       },
       {
+        'id': 1,
         'image': '/image/home.jpg',
         'time': '0507 16：00',
         'state': '--',
@@ -21,6 +23,7 @@ Page({
         'description': '空虚寂寞冷，求小姐姐撩骚'
       },
       {
+        'id': 1,
         'image': '/image/home.jpg',
         'time': '05-07',
         'state': '未领取',
@@ -38,6 +41,25 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1000
+  },
+
+  onShow: function (e) {
+
+  },
+
+  navigateToAccept: function (e) {
+    //e.currentTarget.id 为 deliveryInfo 中的id
+    console.log(e.currentTarget.id);
+    wx.navigateTo({
+      url: '../order/accept/accept'
+    })
+  },
+  navigateToAddFriend: function (e) {
+    //e.currentTarget.id 为 deliveryInfo 中的id
+    console.log(e.currentTarget.id);
+    wx.navigateTo({
+      url: '../order/addFriend/addFriend'
+    })
   },
 
   //跳转下单界面
