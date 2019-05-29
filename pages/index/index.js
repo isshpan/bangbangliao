@@ -5,7 +5,6 @@ Page({
   data: {
     infoList: [
       {
-        'id': 1,
         'image': '/image/home.jpg',
         'time': '4小时前',
         'state': '已领取',
@@ -14,7 +13,6 @@ Page({
         'description': '有没有人啊，幺二四啦！求带七食堂照烧鸡排饭！地址：女子小区(接头地点私聊把)'
       },
       {
-        'id': 1,
         'image': '/image/home.jpg',
         'time': '0507 16：00',
         'state': '--',
@@ -23,7 +21,6 @@ Page({
         'description': '空虚寂寞冷，求小姐姐撩骚'
       },
       {
-        'id': 1,
         'image': '/image/home.jpg',
         'time': '05-07',
         'state': '未领取',
@@ -41,26 +38,6 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1000
-  },
-
-  onShow: function (e) {
-
-  },
-
-  navigateToAccept: function (e) {
-    //e.currentTarget.id 为 deliveryInfo 中的id
-    //console.log(e.currentTarget.id);
-    wx.navigateTo({
-      url: '../order/accept/accept'
-    })
-  },
-  navigateToAddFriend: function (e) {
-    //e.currentTarget.id 为 deliveryInfo 中的id
-    console.log(e.currentTarget.id);
-    wx.navigateTo({
-     // url: '../order/addFriend/addFriend'
-      url: '../order/addFriend/addFriend?id=' +e.currentTarget.id
-    })
   },
 
   //跳转下单界面
@@ -85,12 +62,18 @@ Page({
   addFriend: function (options) {
     wx.navigateTo({
       url: '../order/addFriend/addFriend',
-     
     })
   },
 
   onShow:function(){
     connect.changeRecommendPage(this);
+  },
+
+  //搜索信息
+  onSearch:function(e){
+    const info = e.detail;
+    //console.log(this,info);
+    connect.searchRecommendPage(this,info);
   },
 
   //获取用户信息
@@ -112,14 +95,5 @@ Page({
     // 用户点击授权后，这里可以做一些登陆操作
     app.globalData.userInfo = event.detail.event.detail.userInfo;
     connect.initUserData();
-  },
-
-  //下拉刷新
-  onPullDownRefresh: function () {
-    setTimeout(function () {
-      wx.hideNavigationBarLoading() //完成停止加载
-      wx.stopPullDownRefresh() //停止下拉刷新
-    }, 1500);
-    //console.log("下拉刷新")
-  },
+  }
 })
