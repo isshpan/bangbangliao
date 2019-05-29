@@ -211,8 +211,8 @@ function searchRecommendPage(that,info) {
             tag = '宿舍';
           else
             tag = '教室';
-         
-          if (t.match(info) != null || n.match(info)!=null || tag.match(info)!=null ){
+      
+          if (t != null && (t.match(info) != null || n.match(info)!=null || tag.match(info)!=null) ){
 
             arr.push({
               'image': res.personData.data[0].avatar,
