@@ -414,6 +414,53 @@ function addFriend(){
 
 }
 
+//聊天记录插入数据库
+function chatTable1(e) {
+  const db = wx.cloud.database()
+  const _ = db.commond
+  db.collection('chatDataTable').add({
+    data: {
+      'wxNumber': e['speaker'],
+      'chatTime': new Date(),
+      'wxNumber1': getApp().globalData.otherid,
+      'chatContent': e['content']
+    },
+
+    success: function (res) {
+      console.log('插入成功'),
+        console.log(e),
+        console.log(getOpenid());
+    },
+    fail: function (res) {
+      console.log('插入失败')
+    }
+  })
+}
+
+//聊天记录查询
+function findchatTable1(e) {
+  const db = wx.cloud.database()
+  const _ = db.commond
+  db.collection('chatDataTable').where({
+    'wxNumber': e['speaker'],
+    //'chatTime': new Date(),
+    'wxNumber1': 'sdc1',
+    'chatContent': e['content'],
+    //'_openid':'_openid',
+  })
+    .get({
+
+      success: function (res) {
+        console.log('查询成功'),
+          console.log(e)
+        console.log('sssss::' + res.data)
+      },
+      fail: function (res) {
+        console.log('查询失败')
+      }
+    })
+}
+
 module.exports = {
   initAndGetOpenId: initAndGetOpenId,
   changeCount:changeCount,
@@ -430,7 +477,9 @@ module.exports = {
   changeRecommendPage: changeRecommendPage,
   changeTabIndex:changeTabIndex,
   addFriend:addFriend,
-  acceptOrder:acceptOrder
+  acceptOrder:acceptOrder,
+  chatTable1: chatTable1,
+  findchatTable1: findchatTable1,
 }
 
 

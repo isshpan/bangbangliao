@@ -56,9 +56,10 @@ Page({
   },
   navigateToAddFriend: function (e) {
     //e.currentTarget.id 为 deliveryInfo 中的id
-    //console.log(e.currentTarget.id);
+    console.log(e.currentTarget.id);
     wx.navigateTo({
-      url: '../order/addFriend/addFriend'
+     // url: '../order/addFriend/addFriend'
+      url: '../order/addFriend/addFriend?id=' +e.currentTarget.id
     })
   },
 
@@ -84,6 +85,7 @@ Page({
   addFriend: function (options) {
     wx.navigateTo({
       url: '../order/addFriend/addFriend',
+     
     })
   },
 

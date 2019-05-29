@@ -77,7 +77,7 @@
                     <button id="{{item['id']}}" type="default" size="mini" style="width: 100%; font-weight: 500;" bindtap="navigateToAccept">接单</button>
                 </van-col>
                 <van-col offset="4" span="6">
-                    <button id="{{item['id']}}" type="default" size="mini" style="width: 100%; font-weight: 500;" bindtap="navigateToAddFriend">加好友</button>
+                    <button id="{{item['name']}}" type="default" size="mini" style="width: 100%; font-weight: 500;" bindtap="navigateToAddFriend">加好友</button>
                 </van-col>
             </van-row>
         </view>
