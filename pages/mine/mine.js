@@ -6,9 +6,9 @@ const app = getApp()
 Page({
   data: {
     count: {
-      'delivery': 3,
-      'express': 6,
-      'friend': 9
+      'delivery': '',
+      'express': '',
+      'friend': ''
     }
   },
 
