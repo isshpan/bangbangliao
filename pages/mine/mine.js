@@ -6,9 +6,9 @@ const app = getApp()
 Page({
   data: {
     count: {
-      'delivery': 3,
-      'express': 6,
-      'friend': 9
+      'delivery': '',
+      'express': '',
+      'friend': ''
     }
   },
 
@@ -74,13 +74,17 @@ Page({
   getUserInfo: function (e) {
   },
 
-  navigateToMyDelivery: function () {
+  navigateToMyDelivery: function (e) {
+    //此处区分对应的跳转页面
+    console.log(e.currentTarget.id);
     wx.navigateTo({
       url: '../order/delivery/delivery'
     })
   },
 
-  navigateToMyExpress: function () {
+  navigateToMyExpress: function (e) {
+    //此处区分对应的跳转页面
+    console.log(e.currentTarget.id);
     wx.navigateTo({
       url: '../order/express/express'
     })

@@ -3,13 +3,13 @@
 </view>
 
 <van-row style="text-align: center;">
-  <van-col span="6" bindtap="navigateToDelivery">
+  <van-col id="orderDelivery" span="6" bindtap="navigateToDelivery">
     <view>
       <image style="width: 120rpx; height: 120rpx;" src="/image/delivery.png"></image>
     </view>
     <text style="font-family: serif; font-size: 30rpx; font-weight: bold;">外卖订单</text>
   </van-col>
-  <van-col span="6" bindtap="navigateToExpress">
+  <van-col id="orderExpress" span="6" bindtap="navigateToExpress">
     <view>
       <image style="width: 120rpx; height: 120rpx;" src="/image/express.png"></image>
     </view>

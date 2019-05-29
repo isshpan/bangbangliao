@@ -49,12 +49,16 @@ Page({
       duration: e.detail.value
     })
   },
-  navigateToDelivery: function () {
+  navigateToDelivery: function (e) {
+    //此处区分对应的跳转页面
+    console.log(e.currentTarget.id);
     wx.navigateTo({
       url: './delivery/delivery'
     });
   },
-  navigateToExpress: function () {
+  navigateToExpress: function (e) {
+    //此处区分对应的跳转页面
+    console.log(e.currentTarget.id);
     wx.navigateTo({
       url: './express/express'
     })
