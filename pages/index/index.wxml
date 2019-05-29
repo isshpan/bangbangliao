@@ -21,15 +21,13 @@
 </swiper>
 <van-search value="{{ value }}" placeholder="搜索信息" bind:search="onSearch" />
 <view style='display:flex;flex-direction:row'>
-  <view style='margin-left:120rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="shop-o" size='100rpx' bindtap='delivery' /></view>
-  <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="logistics" size='100rpx' bindtap='express' /></view>
-  <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><image bindtap='addFriend' src="/image/addFriend.png" style="width: 100rpx; height: 100rpx;" /></view>
+  <view style='margin-left:190rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="shop-o" size='100rpx' bindtap='delivery' /></view>
+  <view style='margin-left:170rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><van-icon name="logistics" size='100rpx' bindtap='express' /></view>
 </view>
 
 <view style='display:flex;flex-direction:row'>
-  <view style='margin-left:120rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx' bindtap='delivery'>外卖信息</text></view>
-    <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx' bindtap='express'>快递信息</text></view>
-      <view style='margin-left:100rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx' bindtap='addFriend'>添加好友</text></view>
+  <view style='margin-left:190rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx' bindtap='delivery'>外卖信息</text></view>
+    <view style='margin-left:170rpx;margin-top:20rpx;width: 100rpx;height:100rpx;vertical-align: middle'><text style='font-size:25rpx' bindtap='express'>快递信息</text></view>
 </view>
 
 <view style='display:flex;flex-direction:row'>
@@ -45,13 +43,13 @@
                 <van-col span="2">
                     <image src="{{item['image']}}" style="width: 90rpx; height: 90rpx;"></image>
                 </van-col>
-                <van-col offset="1" span="3">
+                <van-col offset="2" span="3">
                     <view style="font-family: serif; font-size: 24rpx; font-weight: 300; margin-top: 30rpx;">{{item['name']}}</view>
                 </van-col>
                 <van-col offset="1" span="4">
                     <view style="font-family: serif; font-size: 24rpx; font-weight: 300; margin-top: 30rpx;">{{item['time']}}</view>
                 </van-col>
-                <van-col offset="2" span="5">
+                <van-col offset="1" span="4">
                     <view style="font-family: serif; font-size: 24rpx; font-weight: 300; margin-top: 30rpx;">
                         <text>标签：</text>
                         <text>{{item['tag']}}</text>

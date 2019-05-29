@@ -46,15 +46,15 @@ onLoad: function (id){
           //contentType: 'text',
           content:"我们已经成为好友！"
         }
+      wx.showToast({
+        title: '提交成功',
+        icon: 'success',
+        duration: 1000
+      }, 2000)
        connect.chatTable1(mm);
         wx.navigateBack({
             delta: 1
         })
-        wx.showToast({
-            title: '提交成功',
-            icon: 'success',
-            duration: 1000
-        }, 2000)
     }
   }
 })

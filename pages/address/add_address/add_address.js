@@ -33,8 +33,28 @@ Page({
           location: this.data.submit['location'],
         }
       })
-      //console.log('提交的表单信息为：', this.data.submit)
+      // console.log('提交的表单信息为：', this.data.submit)
+      wx.showToast({
+        title: '添加成功',
+        icon: 'success',
+        duration: 1000
+      }, 2000)
       connect.addAddress(this.data.submit);
+      setTimeout(
+        function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000
+      )
+
+    } else {
+      wx.showToast({
+        title: '存在未填信息',
+        icon: 'none',
+        duration: 1000
+      }, 2000)
+      // console.log('存在未填信息');
     }
   },
 
@@ -87,27 +107,4 @@ Page({
       submit: { location: '其他' }
     });
   },
-
-  //确认后返回上一级
-  okBack: function () {
-    if (this.data.submit['contacts'] == '' || this.data.submit['tel'] == '' || this.data.submit['address'] == '') {
-      wx.showToast({
-        title: '存在未填信息',
-        icon: 'none',
-        duration: 1000
-      }, 2000)
-      //console.log('存在未填信息');
-    }
-    else {
-      wx.navigateBack({
-        delta: 1
-      })
-      wx.showToast({
-        title: '添加成功',
-        icon: 'success',
-        duration: 1000
-      }, 2000)
-      //console.log('地址添加成功');
-    }
-  }
 })

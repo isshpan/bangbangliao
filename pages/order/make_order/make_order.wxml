@@ -1,6 +1,6 @@
 <form bindsubmit="formSubmit">
 
-<view style="margin-left:77%; margin-top: 16rpx;"><button type="primary" size="mini" formType="submit" bindtap='modalcnt'>发布</button></view>
+<view style="margin-left:77%; margin-top: 16rpx;"><button type="primary" size="mini" formType="submit">发布</button></view>
 
 <view style='margin-top:16rpx'>
 <van-row>

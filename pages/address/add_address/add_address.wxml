@@ -45,7 +45,7 @@
 <view style="margin-top: 8rpx;margin-left:20rpx">
 <van-row>
   <van-col span="10" offset="1"><button type="warn" style='with:240rpx' size="samll" form-type="reset">取消</button></van-col>
-  <van-col span='10' offset='2'><button type="primary" size="small" form-type="submit" bindtap='okBack'>确定</button></van-col>
+  <van-col span='10' offset='2'><button type="primary" size="small" form-type="submit">确定</button></van-col>
 </van-row>
 </view>
 </form>

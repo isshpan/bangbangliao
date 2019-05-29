@@ -56,7 +56,7 @@ Page({
 
   formSubmit(e) {
     var temp = e.detail.value;
-    if (temp.标签 != '' && temp.正文 != '' && temp.收货地址 != '') {
+    if (temp.标签 != '' && temp.正文 != '') {
       this.setData({
         submit: {
           label: e.detail.value.标签,
@@ -65,21 +65,6 @@ Page({
           address: e.detail.value.收货地址,
         }
       })
-      //console.log('提交的表单信息为：', this.data.submit);
-    }
-  },
-
-  //发布弹窗提醒
-  modalcnt: function () {
-    if (this.data.submit['label'] == '' || this.data.submit['text'] == '') {
-      wx.showToast({
-        title: '存在未填信息',
-        icon: 'none',
-        duration: 1000
-      }, 2000)
-      //console.log('存在未填信息');
-    }
-    else {
       var that = this;
       wx.showModal({
         title: '提示',
@@ -99,6 +84,16 @@ Page({
           }
         }
       })
+      //console.log('提交的表单信息为：', this.data.submit);
+    }
+    else
+    {
+      wx.showToast({
+        title: '存在未填信息',
+        icon: 'none',
+        duration: 1000
+      }, 2000)
+      //console.log('存在未填信息');
     }
   },
 })
