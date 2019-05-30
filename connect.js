@@ -164,12 +164,17 @@ function changeOrderPage(that,tag)
   });   
 }
 
+<<<<<<< HEAD
 function _get(){
   return orderTable.where({ status: 0}).get();
 }
 
 function changeRecommendPage(that) {
   return _get().then
+=======
+function changeRecommendPage(that) {
+  return getAllOrderData().then
+>>>>>>> 2c5a4e3e4f964c4333c602875eda8a16ac9aee41
     (res => {
       that.data.infoList = [];
       var arr = that.data.infoList;
@@ -188,8 +193,12 @@ function changeRecommendPage(that) {
           else
             tag = '教室';
           arr.push({
+<<<<<<< HEAD
             'id':res.data._id,
             'ownerId':res.personData.data[0]._id,
+=======
+            'id':res.personData.data[0]._id,
+>>>>>>> 2c5a4e3e4f964c4333c602875eda8a16ac9aee41
             'image': res.personData.data[0].avatar,
             'name': res.personData.data[0].name,
             'time': timeStr,
@@ -202,7 +211,10 @@ function changeRecommendPage(that) {
       }
       Promise.all(promises).then(
         res => {
+<<<<<<< HEAD
           console.log(arr);
+=======
+>>>>>>> 2c5a4e3e4f964c4333c602875eda8a16ac9aee41
           that.setData({
             infoList: arr
           });
@@ -396,8 +408,11 @@ function changeTabIndex(index){
   currentTabIndex = index;
 }
 
+<<<<<<< HEAD
 var tempVar = null;
 
+=======
+>>>>>>> 2c5a4e3e4f964c4333c602875eda8a16ac9aee41
 function acceptOrder(){
   wx.cloud.callFunction({
     name: 'updateOrder',
@@ -421,6 +436,7 @@ function addFriend(){
       'fwxNumber': getOpenid() 
     }
   });
+<<<<<<< HEAD
 }
 
 function _get2(){
@@ -444,11 +460,84 @@ function changeAcceptInfo(that){
             'profilePhoto': res.personData.data[0].avatar,
             'name': res.personData.data[0].name,
             'time': timeStr,
+=======
+
+}
+
+//聊天记录插入数据库
+function chatTable1(e) {
+  const db = wx.cloud.database()
+  const _ = db.commond
+  db.collection('chatDataTable').add({
+    data: {
+      'wxNumber': e['speaker'],
+      'chatTime': new Date(),
+      'wxNumber1': getApp().globalData.otherid,
+      'chatContent': e['content']
+    },
+
+    success: function (res) {
+      console.log('插入成功'),
+        console.log(e),
+        console.log(getOpenid());
+    },
+    fail: function (res) {
+      console.log('插入失败')
+    }
+  })
+}
+
+//聊天记录查询
+function findchatTable1(e) {
+  const db = wx.cloud.database()
+  const _ = db.commond
+  db.collection('chatDataTable').where({
+    'wxNumber': e['speaker'],
+    //'chatTime': new Date(),
+    'wxNumber1': 'sdc1',
+    'chatContent': e['content'],
+    //'_openid':'_openid',
+  })
+    .get({
+
+      success: function (res) {
+        console.log('查询成功'),
+          console.log(e)
+        console.log('sssss::' + res.data)
+      },
+      fail: function (res) {
+        console.log('查询失败')
+      }
+    })
+}
+
+function changeRecommendPage(that,info) {
+  return getAllOrderData().then
+    (res => {
+      that.data.infoList = [];
+      var arr = that.data.infoList;
+      var promises = [];
+      for (var i = 0; i < res.data.length; i++) {
+        var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
+          var timeStr = formatTime(res.data.time);
+          var t = res.data.text;
+          var tag = null;
+          if(res.data.lable==0)
+            tag = '宿舍';
+          else
+            tag = '教室';
+          arr.push({
+            'image': res.personData.data[0].avatar,
+            'name': res.personData.data[0].name,
+            'time': timeStr,
+            'tag': tag,
+>>>>>>> 2c5a4e3e4f964c4333c602875eda8a16ac9aee41
             'state': '未领取',
             'description': t
           });
         });
         promises.push(p);
+<<<<<<< HEAD
       };
       Promise.all(promises).then(
         res => {
@@ -641,6 +730,59 @@ function searchRecommendPage(that, info) {
                 }
             );
         });
+=======
+      }
+      Promise.all(promises).then(
+        res => {
+          that.setData({
+            infoList: arr
+          });
+        }
+      );
+    });
+}
+
+function searchRecommendPage(that,info) {
+  return getAllOrderData().then
+    (res => {
+      that.data.infoList = [];
+      var arr = that.data.infoList;
+      var promises = [];
+      for (var i = 0; i < res.data.length; i++) {
+        console.log(res.data.length);
+        var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
+          var timeStr = formatTime(res.data.time);
+          var t = res.data.text;
+          var n = res.personData.data[0].name;
+          var tag = null;
+          if (res.data.lable == 0)
+            tag = '宿舍';
+          else
+            tag = '教室';
+         
+          if (t != null && t.match(info) != null || n.match(info)!=null || tag.match(info)!=null ){
+
+            arr.push({
+              'image': res.personData.data[0].avatar,
+              'name': n,
+              'time': timeStr,
+              'tag': tag,
+              'state': '未领取',
+              'description': t
+            });
+          }
+        });
+        promises.push(p);
+      }
+      Promise.all(promises).then(
+        res => {
+          that.setData({
+            infoList: arr
+          });
+        }
+      );
+    });
+>>>>>>> 2c5a4e3e4f964c4333c602875eda8a16ac9aee41
 }
 
 module.exports = {
@@ -657,6 +799,7 @@ module.exports = {
   changeAddress:changeAddress,
   changeAddressTab: changeAddressTab,
   changeRecommendPage: changeRecommendPage,
+<<<<<<< HEAD
   changeTabIndex:changeTabIndex,
   addFriend:addFriend,
   acceptOrder:acceptOrder,
@@ -668,6 +811,14 @@ module.exports = {
   searchRecommendPage: searchRecommendPage,
   changeMe:changeMe,
   getMe:getMe,
+=======
+  searchRecommendPage: searchRecommendPage,
+  changeTabIndex:changeTabIndex,
+  addFriend:addFriend,
+  acceptOrder:acceptOrder,
+  chatTable1: chatTable1,
+  findchatTable1: findchatTable1,
+>>>>>>> 2c5a4e3e4f964c4333c602875eda8a16ac9aee41
 }
 
 
