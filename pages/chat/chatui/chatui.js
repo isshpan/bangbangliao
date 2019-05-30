@@ -66,11 +66,11 @@ Page({
     var that = this;
     db.collection('chatDataTable').get({
       success(res) {
-        console.log("resdata:" + res.data)
+        //console.log("resdata:" + res.data)
       }
     })
     this.data.id = id;
-    console.log("id:", this.data.id["id"]);
+    //console.log("id:", this.data.id["id"]);
     var testid = this.data.id["id"];
     app.globalData.otherid = testid;
 
@@ -90,7 +90,7 @@ Page({
           that.setData({
             ss: res.data
           })
-          console.log('[数据库] [查询记录] 成功：', res.data)
+          //console.log('[数据库] [查询记录] 成功：', res.data)
         },
         fail: err => {
           wx.showToast({
@@ -100,7 +100,7 @@ Page({
           console.error('网l：', err)
         }
       })
-      console.log("ss11:", that.data.ss);
+      //console.log("ss11:", that.data.ss);
       var a = [];
       for (var qq in that.data.ss) {
         if (that.data.ss[qq]["wxNumber"] == getApp().globalData.userInfo["nickName"]) {
@@ -128,7 +128,7 @@ Page({
           })
         }
       }
-      console.log("mglist", a);
+      //console.log("mglist", a);
     }, 3000)
 
   },

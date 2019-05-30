@@ -34,7 +34,7 @@ Page({
           location: this.data.submit['location'],
         }
       })
-      // console.log('提交的表单信息为：', this.data.submit)
+      // //console.log('提交的表单信息为：', this.data.submit)
       wx.showToast({
         title: '修改成功',
         icon: 'success',
@@ -55,7 +55,7 @@ Page({
         icon: 'none',
         duration: 1000
       }, 2000)
-      // console.log('存在未填信息');
+      // //console.log('存在未填信息');
     }
   },
 

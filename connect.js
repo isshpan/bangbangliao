@@ -17,7 +17,7 @@ var ifMine = false;
 
 //用于初始化云函数并返回Openid
 function initAndGetOpenId() {
-    //console.log("happen");
+    ////console.log("happen");
     wx.cloud.init({
       env: 'bit-bbl1-ln1i2'
     });
@@ -55,7 +55,7 @@ function examHasUserAndReturn2(openid,data){
 function initUserData(){
   var id = getOpenid();
   var app = getApp();
-  //console.log(app.globalData.userInfo);
+  ////console.log(app.globalData.userInfo);
   var userInfo = app.globalData.userInfo;
   if(userInfo!=null){
     info.name = userInfo.nickName;
@@ -85,10 +85,10 @@ function insertUserData(id,userInfo){
       avatar: userInfo.avatarUrl
     },
     success: function (res) {
-      //console.log('插入成功', res);
+      ////console.log('插入成功', res);
     },
     fail: function (res) {
-      //console.log('插入失败', res);
+      ////console.log('插入失败', res);
     }
   });
 }
@@ -102,10 +102,10 @@ function changeUserData(id,userInfo){
       avatar: userInfo.avatarUrl
     },
     success: function (res) {
-      //console.log('插入成功', res);
+      ////console.log('插入成功', res);
     },
     fail: function (res) {
-      //console.log('插入失败', res);
+      ////console.log('插入失败', res);
     }
   });
 }
@@ -131,14 +131,14 @@ function changeOrderPage(that,tag)
   else num = 1;
   return getOrderData(true, num, null).then
   (res => {
-    // //console.log(res.data);
+    // ////console.log(res.data);
     var arr = that.data.deliveryInfo;
     var promises = [];
     for (var i = 0; i < res.data.length; i++) 
     {
       var p = examHasUserAndReturn2(res.data[i].wxNumber,res.data[i]).then(res => 
         {
-          //console.log(res);
+          ////console.log(res);
           var timeStr = formatTime(res.data.time);
           var t = res.data.text;
           arr.push({
@@ -154,7 +154,7 @@ function changeOrderPage(that,tag)
         });
       promises.push(p);
     };
-    //console.log(arr);
+    ////console.log(arr);
       Promise.all(promises).then(
         res => {
         that.setData({
@@ -168,48 +168,7 @@ function _get(){
   return orderTable.where({ status: 0}).get();
 }
 
-function changeRecommendPage(that) {
-  return _get().then
-    (res => {
-      that.data.infoList = [];
-      var arr = that.data.infoList;
-      var promises = [];
-      for (var i = 0; i < res.data.length; i++) {
-        var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
-          var timeStr = formatTime(res.data.time);
-          var t = res.data.text;
-          var tag = null;
-          var status = '未领取';
-          if(res.data.status==0)
-              status = '未领取';
-          else status = '已领取';
-          if(res.data.label==0)
-            tag = '宿舍';
-          else
-            tag = '教室';
-          arr.push({
-            'id':res.data._id,
-            'ownerId':res.personData.data[0]._id,
-            'image': res.personData.data[0].avatar,
-            'name': res.personData.data[0].name,
-            'time': timeStr,
-            'tag': tag,
-            'state': status,
-            'description': t
-          });
-        });
-        promises.push(p);
-      }
-      Promise.all(promises).then(
-        res => {
-          console.log(arr);
-          that.setData({
-            infoList: arr
-          });
-        }
-      );
-    });
-}
+
 
 //用于修改时间
 function formatTime(date){
@@ -218,7 +177,7 @@ function formatTime(date){
   var day = date.getDate();
   var hour = date.getHours();
   var minute = date.getMinutes();
-  //console.log(date,year,month,day,hour,minute);
+  ////console.log(date,year,month,day,hour,minute);
   var now = new Date();
   if (now.getFullYear() == year && now.getMonth() == month - 1 && now.getDate()==day){
     var ans = now.getHours() - hour;
@@ -238,7 +197,7 @@ function addOrderData(address,order,text){
     myOrder = 0;
   else
     myOrder = 1;
-  //console.log(address,order,text);
+  ////console.log(address,order,text);
   var ad = address;
   var te = text;
   orderTable.add({
@@ -251,7 +210,7 @@ function addOrderData(address,order,text){
       wxNumber: getOpenid(),
     },
     success:function(res){
-      //console.log(res);
+      ////console.log(res);
     }
   });
 }
@@ -264,7 +223,6 @@ function changeCount(that) {
       openid:getOpenid()
     }
   }).then(res => {
-    console.log(res);
     var orderNum = 0;
     var friendNum = 0;
     var expressNum = 0;
@@ -375,7 +333,7 @@ function changeAddress(data){
     location = 0;
   else
     location = 1;
-  //console.log(currentTabIndex,data);
+  ////console.log(currentTabIndex,data);
   return addressTable.doc(currentTabIndex).update({
     data: {
       'sex': sex,
@@ -384,10 +342,10 @@ function changeAddress(data){
       'address': data.submit.address
     },
     success:function(res){
-      //console.log(res);
+      ////console.log(res);
     },
     fail:function(res){
-      //console.log(res);
+      ////console.log(res);
     }
     });
 }
@@ -430,12 +388,11 @@ function _get2(){
 function changeAcceptInfo(that){
   return _get2().then
     (res => {
-      console.log(res.data);
       var arr = [];
       var promises = [];
       for (var i = 0; i < res.data.length; i++) {
         var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
-          console.log(res);
+          //console.log(res);
           var timeStr = formatTime(res.data.time);
           var t = res.data.text;
           arr.push({
@@ -452,7 +409,7 @@ function changeAcceptInfo(that){
       };
       Promise.all(promises).then(
         res => {
-          console.log(arr);
+          //console.log(arr);
           that.setData({
             'id': arr[0].id,
             'ownerId': arr[0].ownerId,
@@ -478,12 +435,12 @@ function changeMyOrder(that, tag) {
   else num = 1;
   return _get3(true, num).then
     (res => {
-      // //console.log(res.data);
+      // ////console.log(res.data);
       var arr = that.data.deliveryInfo;
       var promises = [];
       for (var i = 0; i < res.data.length; i++) {
         var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
-          //console.log(res);
+          ////console.log(res);
           var timeStr = formatTime(res.data.time);
           var t = res.data.text;
           arr.push({
@@ -499,7 +456,7 @@ function changeMyOrder(that, tag) {
         });
         promises.push(p);
       };
-      //console.log(arr);
+      ////console.log(arr);
       Promise.all(promises).then(
         res => {
           that.setData({
@@ -531,12 +488,12 @@ function chatTable1(e) {
         },
 
         success: function (res) {
-            console.log('插入成功'),
-                console.log(e),
-                console.log(getOpenid());
+            //console.log('插入成功'),
+                //console.log(e),
+                //console.log(getOpenid());
         },
         fail: function (res) {
-            console.log('插入失败')
+            //console.log('插入失败')
         }
     })
 }
@@ -555,51 +512,58 @@ function findchatTable1(e) {
         .get({
 
             success: function (res) {
-                console.log('查询成功'),
-                    console.log(e)
-                console.log('sssss::' + res.data)
+                //console.log('查询成功'),
+                    //console.log(e)
+                //console.log('sssss::' + res.data)
             },
             fail: function (res) {
-                console.log('查询失败')
+                //console.log('查询失败')
             }
         })
 }
 
-function changeRecommendPage(that, info) {
-    return getAllOrderData().then
-        (res => {
-            that.data.infoList = [];
-            var arr = that.data.infoList;
-            var promises = [];
-            for (var i = 0; i < res.data.length; i++) {
-                var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
-                    var timeStr = formatTime(res.data.time);
-                    var t = res.data.text;
-                    var tag = null;
-                    if (res.data.lable == 0)
-                        tag = '宿舍';
-                    else
-                        tag = '教室';
-                    arr.push({
-                        'image': res.personData.data[0].avatar,
-                        'name': res.personData.data[0].name,
-                        'time': timeStr,
-                        'tag': tag,
-                        'state': '未领取',
-                        'description': t
-                    });
-                });
-                promises.push(p);
-            }
-            Promise.all(promises).then(
-                res => {
-                    that.setData({
-                        infoList: arr
-                    });
-                }
-            );
+function changeRecommendPage(that) {
+  return _get().then
+    (res => {
+      that.data.infoList = [];
+      var arr = that.data.infoList;
+      var promises = [];
+      for (var i = 0; i < res.data.length; i++) {
+        var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
+          var timeStr = formatTime(res.data.time);
+          var t = res.data.text;
+          var tag = null;
+          var status = '未领取';
+          if(res.data.status==0)
+              status = '未领取';
+          else status = '已领取';
+          if(res.data.label==0)
+            tag = '宿舍';
+          else
+            tag = '教室';
+          arr.push({
+            'id':res.data._id,
+            'ownerId':res.personData.data[0]._id,
+            'image': res.personData.data[0].avatar,
+            'name': res.personData.data[0].name,
+            'time': timeStr,
+            'tag': tag,
+            'state': status,
+            'description': t
+          });
         });
+        promises.push(p);
+      }
+      Promise.all(promises).then(
+        res => {
+          that.setData({
+            infoList: arr
+          });
+        }
+      );
+    });
 }
+
 
 function searchRecommendPage(that, info) {
     return getAllOrderData().then
@@ -608,7 +572,6 @@ function searchRecommendPage(that, info) {
             var arr = that.data.infoList;
             var promises = [];
             for (var i = 0; i < res.data.length; i++) {
-                console.log(res.data.length);
                 var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
                     var timeStr = formatTime(res.data.time);
                     var t = res.data.text;
@@ -656,7 +619,6 @@ module.exports = {
   addAddress: addAddress,
   changeAddress:changeAddress,
   changeAddressTab: changeAddressTab,
-  changeRecommendPage: changeRecommendPage,
   changeTabIndex:changeTabIndex,
   addFriend:addFriend,
   acceptOrder:acceptOrder,

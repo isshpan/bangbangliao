@@ -16,7 +16,7 @@ Page({
     */
   getDataBindTap: function (e) {
     var result = e.detail.value;
-    //console.log(result)
+    ////console.log(result)
   },
 
   formSubmit(e) {
@@ -27,7 +27,7 @@ Page({
           tel: e.detail.value.tel,
         }
       })
-      //console.log('提交的表单信息为：', this.data.submit);
+      ////console.log('提交的表单信息为：', this.data.submit);
       wx.showToast({
         title: '添加成功',
         icon: 'success',
@@ -46,7 +46,7 @@ Page({
         icon: 'none',
         duration: 1000
       }, 2000)
-      // console.log('存在未填信息');
+      // //console.log('存在未填信息');
     }
   },
 

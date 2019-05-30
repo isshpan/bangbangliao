@@ -71,17 +71,17 @@ Page({
         content: '确认发布？',
         success: function (res) {
           if (res.confirm) {
-            //console.log('用户点击确定');
+            ////console.log('用户点击确定');
             connect.addOrderData(that.data.submit.address, that.data.submit.order, that.data.submit.text);
             wx.navigateBack({
               delta: 2
             });
           } else if (res.cancel) {
-            //console.log('用户点击取消');
+            ////console.log('用户点击取消');
           }
         }
       })
-      //console.log('提交的表单信息为：', this.data.submit);
+      ////console.log('提交的表单信息为：', this.data.submit);
     }
     else
     {
@@ -90,7 +90,7 @@ Page({
         icon: 'none',
         duration: 1000
       }, 2000)
-      //console.log('存在未填信息');
+      ////console.log('存在未填信息');
     }
   },
 })

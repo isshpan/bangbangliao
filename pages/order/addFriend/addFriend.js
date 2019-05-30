@@ -19,12 +19,12 @@ Page({
     },
 
   formSubmit(e) {
-    //console.log('提交的表单信息为：', e.detail.value)
+    ////console.log('提交的表单信息为：', e.detail.value)
   },
 
 onLoad: function (id){
     this.data.id = id;
-    console.log("id:", this.data.id);
+    //console.log("id:", this.data.id);
   getApp().globalData.otherid = this.data.id["id"]
 },
 
@@ -36,7 +36,7 @@ onLoad: function (id){
    //         icon: 'none',
    //         duration: 1000
    //     }, 2000)
-        //console.log('存在未填信息');
+        ////console.log('存在未填信息');
   //  }
   // else
     {

@@ -42,7 +42,7 @@ Page({
             that.setData({
               ss: res.data
             })
-            console.log("lohhh:", res.data)
+            //console.log("lohhh:", res.data)
           },
           fail: err => {
             wx.showToast({
@@ -58,7 +58,7 @@ Page({
         qq.push(that.data.ss[i]);
       }
       var jj = [0];
-      console.log("qqqqq:", qq)
+      //console.log("qqqqq:", qq)
       for (var item in qq) {
         for (var j in jj) {
           if (qq[item]["wxNumber"] == jj[j] || qq[item]["wxNumber1"] == jj[j]) {
