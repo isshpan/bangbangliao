@@ -24,7 +24,7 @@
         <van-col offset="1" span="5">
             <view style="font-family: serif; font-size: 24rpx; font-weight: 300; margin-top: 30rpx;">
                 <text>状态：</text>
-                <text>{{state}}</text>
+                <text>已领取</text>
             </view>
         </van-col>
     </van-row>

@@ -16,7 +16,7 @@ Page({
     */
   getDataBindTap: function (e) {
     var result = e.detail.value;
-    //console.log(result)
+    ////console.log(result)
   },
 
   formSubmit(e) {
@@ -27,30 +27,26 @@ Page({
           tel: e.detail.value.tel,
         }
       })
-      //console.log('提交的表单信息为：', this.data.submit);
-    }
-  },
-
-  //确认后返回上一级
-  okBack: function () {
-    if (this.data.submit['advice'] == '' || this.data.submit['tel'] == '') {
+      ////console.log('提交的表单信息为：', this.data.submit);
+      wx.showToast({
+        title: '添加成功',
+        icon: 'success',
+        duration: 1000
+      }, 2000)
+      setTimeout(
+        function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000
+      )
+    } else {
       wx.showToast({
         title: '存在未填信息',
         icon: 'none',
         duration: 1000
       }, 2000)
-      //console.log('存在未填信息');
-    }
-    else {
-      wx.navigateBack({
-        delta: 1
-      })
-      wx.showToast({
-        title: '反馈成功',
-        icon: 'success',
-        duration: 1000
-      }, 2000)
-      //console.log('信息反馈成功');
+      // //console.log('存在未填信息');
     }
   },
 

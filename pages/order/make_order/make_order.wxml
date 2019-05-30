@@ -1,6 +1,6 @@
 <form bindsubmit="formSubmit">
 
-<view style="margin-left:77%; margin-top: 16rpx;"><button type="primary" size="mini" formType="submit" bindtap='modalcnt'>发布</button></view>
+<view style="margin-left:77%; margin-top: 16rpx;"><button type="primary" size="mini" formType="submit">发布</button></view>
 
 <view style='margin-top:16rpx'>
 <van-row>
@@ -28,7 +28,7 @@
    <text style="font-size: 40rpx; font-family:Serif;font-weight:bold">正文</text>
   </van-col>
   <van-col span='17'>
-    <textarea name='正文' style='border:3rpx solid #aaa;height:250rpx;width:100%'></textarea>
+    <textarea name='正文' style='border:3rpx solid #aaa;height:250rpx;width:100%' value="{{submit['text']}}" show-confirm-bar='false'></textarea>
   </van-col>
 </van-row>
 </view>
