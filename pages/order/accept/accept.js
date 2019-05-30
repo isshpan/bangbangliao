@@ -1,3 +1,4 @@
+var connect = require('../../../connect.js')
 Page({
     data: {
       profilePhoto: '/image/friend.png',
@@ -11,5 +12,8 @@ Page({
         wx.navigateTo({
             url: '../addFriend/addFriend'
         })
+    },
+    onShow:function(e){
+      connect.changeAcceptInfo(this);
     }
 })

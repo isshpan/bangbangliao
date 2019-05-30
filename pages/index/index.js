@@ -15,13 +15,11 @@ Page({
     duration: 1000
   },
 
-  onShow: function (e) {
-
-  },
-
   navigateToAccept: function (e) {
     //e.currentTarget.id 为 deliveryInfo 中的id
     //console.log(e.currentTarget.id);
+    connect.changeTabIndex(e.currentTarget.id);
+    connect.acceptOrder(e.currentTarget.id);
     wx.navigateTo({
       url: '../order/accept/accept'
     })
@@ -29,6 +27,8 @@ Page({
   navigateToAddFriend: function (e) {
     //e.currentTarget.id 为 deliveryInfo 中的id
     console.log(e.currentTarget.id);
+    connect.changeTabIndex(e.currentTarget.id);
+    connect.addFriend();
     wx.navigateTo({
       // url: '../order/addFriend/addFriend'
       url: '../order/addFriend/addFriend?id=' + e.currentTarget.id
@@ -68,6 +68,10 @@ Page({
   },
 
   onShow: function () {
+    connect.changeRecommendPage(this);
+  },
+
+  onLoad:function(){
     connect.changeRecommendPage(this);
   },
 

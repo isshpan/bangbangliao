@@ -1,3 +1,5 @@
+var connect = require('../../connect.js')
+
 Page({
   data: {
     imgUrls: [
@@ -51,14 +53,14 @@ Page({
   },
   navigateToDelivery: function (e) {
     //此处区分对应的跳转页面
-    console.log(e.currentTarget.id);
+    connect.changeMe(false);
     wx.navigateTo({
       url: './delivery/delivery'
     });
   },
   navigateToExpress: function (e) {
     //此处区分对应的跳转页面
-    console.log(e.currentTarget.id);
+    connect.changeMe(false);
     wx.navigateTo({
       url: './express/express'
     })

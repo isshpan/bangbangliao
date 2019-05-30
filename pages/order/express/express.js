@@ -5,9 +5,22 @@ Page({
     deliveryInfo: []
   },
 
+  onLoad:function(e){
+    this.setData({ deliveryInfo: [] });
+    if (connect.getMe()) {
+      connect.changeMyOrder(this, '快递');
+    } else {
+      connect.changePage(this, '快递');
+    }
+  },
+
   onShow: function (e) {
     this.setData({ deliveryInfo: [] });
-    connect.changePage(this, '快递');
+    if (connect.getMe()) {
+      connect.changeMyOrder(this, '快递');
+    } else {
+      connect.changePage(this, '快递');
+    }
     //console.log(this.data.deliveryInfo);
   },
 

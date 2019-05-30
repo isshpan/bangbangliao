@@ -6,16 +6,18 @@ var userTable = null;
 var chatTable = null;
 var addressTable = null;
 var userOpenid = null;
+var currentTabIndex = null;
 var info = {
   name : null,
   avatarUrl:null,
   gender:null
 };
+var ifMine = false;
 
 
 //用于初始化云函数并返回Openid
 function initAndGetOpenId() {
-    console.log("happen");
+    //console.log("happen");
     wx.cloud.init({
       env: 'bit-bbl1-ln1i2'
     });
@@ -53,7 +55,7 @@ function examHasUserAndReturn2(openid,data){
 function initUserData(){
   var id = getOpenid();
   var app = getApp();
-  console.log(app.globalData.userInfo);
+  //console.log(app.globalData.userInfo);
   var userInfo = app.globalData.userInfo;
   if(userInfo!=null){
     info.name = userInfo.nickName;
@@ -83,10 +85,10 @@ function insertUserData(id,userInfo){
       avatar: userInfo.avatarUrl
     },
     success: function (res) {
-      console.log('插入成功', res);
+      //console.log('插入成功', res);
     },
     fail: function (res) {
-      console.log('插入失败', res);
+      //console.log('插入失败', res);
     }
   });
 }
@@ -100,17 +102,17 @@ function changeUserData(id,userInfo){
       avatar: userInfo.avatarUrl
     },
     success: function (res) {
-      console.log('插入成功', res);
+      //console.log('插入成功', res);
     },
     fail: function (res) {
-      console.log('插入失败', res);
+      //console.log('插入失败', res);
     }
   });
 }
 
 function getOrderData(free,tag = 0,openid){
   if(free){
-    return orderTable.where({status:0,lable:tag}).get();
+    return orderTable.where({status:0,label:tag}).get();
   }
   else{
     return orderTable.where({wxNumber:openid}).get();
@@ -129,16 +131,19 @@ function changeOrderPage(that,tag)
   else num = 1;
   return getOrderData(true, num, null).then
   (res => {
-    console.log(res.data);
+    // //console.log(res.data);
     var arr = that.data.deliveryInfo;
     var promises = [];
     for (var i = 0; i < res.data.length; i++) 
     {
       var p = examHasUserAndReturn2(res.data[i].wxNumber,res.data[i]).then(res => 
         {
+          //console.log(res);
           var timeStr = formatTime(res.data.time);
           var t = res.data.text;
           arr.push({
+            'id':res.data._id,
+            'ownerId':res.data.wxNumber,
             'profilePhoto': res.personData.data[0].avatar,
             'name': res.personData.data[0].name,
             'time': timeStr,
@@ -148,7 +153,8 @@ function changeOrderPage(that,tag)
           });
         });
       promises.push(p);
-    }
+    };
+    //console.log(arr);
       Promise.all(promises).then(
         res => {
         that.setData({
@@ -158,8 +164,12 @@ function changeOrderPage(that,tag)
   });   
 }
 
-function changeRecommendPage(that,info) {
-  return getAllOrderData().then
+function _get(){
+  return orderTable.where({ status: 0}).get();
+}
+
+function changeRecommendPage(that) {
+  return _get().then
     (res => {
       that.data.infoList = [];
       var arr = that.data.infoList;
@@ -169,16 +179,22 @@ function changeRecommendPage(that,info) {
           var timeStr = formatTime(res.data.time);
           var t = res.data.text;
           var tag = null;
-          if(res.data.lable==0)
+          var status = '未领取';
+          if(res.data.status==0)
+              status = '未领取';
+          else status = '已领取';
+          if(res.data.label==0)
             tag = '宿舍';
           else
             tag = '教室';
           arr.push({
+            'id':res.data._id,
+            'ownerId':res.personData.data[0]._id,
             'image': res.personData.data[0].avatar,
             'name': res.personData.data[0].name,
             'time': timeStr,
             'tag': tag,
-            'state': '未领取',
+            'state': status,
             'description': t
           });
         });
@@ -186,48 +202,7 @@ function changeRecommendPage(that,info) {
       }
       Promise.all(promises).then(
         res => {
-          that.setData({
-            infoList: arr
-          });
-        }
-      );
-    });
-}
-
-function searchRecommendPage(that,info) {
-  return getAllOrderData().then
-    (res => {
-      that.data.infoList = [];
-      var arr = that.data.infoList;
-      var promises = [];
-      for (var i = 0; i < res.data.length; i++) {
-        console.log(res.data.length);
-        var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
-          var timeStr = formatTime(res.data.time);
-          var t = res.data.text;
-          var n = res.personData.data[0].name;
-          var tag = null;
-          if (res.data.lable == 0)
-            tag = '宿舍';
-          else
-            tag = '教室';
-      
-          if (t != null && (t.match(info) != null || n.match(info)!=null || tag.match(info)!=null) ){
-
-            arr.push({
-              'image': res.personData.data[0].avatar,
-              'name': n,
-              'time': timeStr,
-              'tag': tag,
-              'state': '未领取',
-              'description': t
-            });
-          }
-        });
-        promises.push(p);
-      }
-      Promise.all(promises).then(
-        res => {
+          console.log(arr);
           that.setData({
             infoList: arr
           });
@@ -243,7 +218,7 @@ function formatTime(date){
   var day = date.getDate();
   var hour = date.getHours();
   var minute = date.getMinutes();
-  console.log(date,year,month,day,hour,minute);
+  //console.log(date,year,month,day,hour,minute);
   var now = new Date();
   if (now.getFullYear() == year && now.getMonth() == month - 1 && now.getDate()==day){
     var ans = now.getHours() - hour;
@@ -263,20 +238,20 @@ function addOrderData(address,order,text){
     myOrder = 0;
   else
     myOrder = 1;
-  console.log(address,order,text);
+  //console.log(address,order,text);
   var ad = address;
   var te = text;
   orderTable.add({
     data:{
       address: ad,
-      lable: myOrder,
+      label: myOrder,
       text: te,
       status: 0,
       time: new Date(),
       wxNumber: getOpenid(),
     },
     success:function(res){
-      console.log(res);
+      //console.log(res);
     }
   });
 }
@@ -289,20 +264,19 @@ function changeCount(that) {
       openid:getOpenid()
     }
   }).then(res => {
+    console.log(res);
     var orderNum = 0;
     var friendNum = 0;
     var expressNum = 0;
-    console.log(res);
-
     for (var i = 0; i < res.result.data.length; i++) {
-      if (res.result.data[i].lable == null) continue;
-      if (res.result.data[i].lable == 0) {
+      if (res.result.data[i].label == null) continue;
+      if (res.result.data[i].label == 0) {
         orderNum++;
       }
       else
         expressNum++;
     }
-
+    
     friendNum = res.result.data.length - (orderNum + expressNum);
     that.setData({
       'count.delivery': orderNum,
@@ -318,9 +292,7 @@ function getAllAddress(){
 
 function changeAddressPage(that){
   getAllAddress().then(res=>{
-    console.log(res);
     var arr = that.data.addressInfoList;
-    console.log(arr);
     var gender = null;
     var location = null;
     for(var i = 0;i<res.data.length;i++){
@@ -329,12 +301,13 @@ function changeAddressPage(that){
       }else{
         gender = '女士';
       }
-      if (res.data[i].lable == 0) {
+      if (res.data[i].label == 0) {
         location = '宿舍';
       } else {
         location = '教室';
       }
       arr.push({
+        'id':res.data[i]._id,
         'name':info.name,
         'sex':gender,
         'phone':res.data[i].phoneNumber,
@@ -353,7 +326,7 @@ function changeAddressTab(that){
   getAllAddress().then(res=>{
     var location = null;
     for (var i = 0; i < res.data.length; i++) {
-      if (res.data[i].lable == 0) {
+      if (res.data[i].label == 0) {
         location = '宿舍';
       } else {
         location = '教室';
@@ -385,7 +358,7 @@ function addAddress(data){
       'wxNumber': getOpenid(),
       'sex': sex,
       'phoneNumber': data.tel,
-      'lable': location,
+      'label': location,
       'address': data.address
     }
   });
@@ -402,14 +375,272 @@ function changeAddress(data){
     location = 0;
   else
     location = 1;
-  return addressTable.where({wxNumber:getOpenid()}).update({
+  //console.log(currentTabIndex,data);
+  return addressTable.doc(currentTabIndex).update({
     data: {
-      'wxNumber': getOpenid(),
       'sex': sex,
-      'phoneNumber': data.tel,
-      'lable': location,
-      'address': data.address
-    }});
+      'phoneNumber': data.submit.tel,
+      'label': location,
+      'address': data.submit.address
+    },
+    success:function(res){
+      //console.log(res);
+    },
+    fail:function(res){
+      //console.log(res);
+    }
+    });
+}
+
+function changeTabIndex(index){
+  currentTabIndex = index;
+}
+
+var tempVar = null;
+
+function acceptOrder(){
+  wx.cloud.callFunction({
+    name: 'updateOrder',
+    data:{
+      id:currentTabIndex,
+      receiver:getOpenid()
+    }    
+  }).then();
+}
+
+function addFriend(){
+  friendTable.add({
+    data:{
+      'wxNumber':getOpenid(),
+      'fwxNumber':currentTabIndex
+    }
+  });
+  friendTable.add({
+    data: {
+      'wxNumber': currentTabIndex,
+      'fwxNumber': getOpenid() 
+    }
+  });
+}
+
+function _get2(){
+  return orderTable.where({ _id:currentTabIndex }).get();
+}
+
+function changeAcceptInfo(that){
+  return _get2().then
+    (res => {
+      console.log(res.data);
+      var arr = [];
+      var promises = [];
+      for (var i = 0; i < res.data.length; i++) {
+        var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
+          console.log(res);
+          var timeStr = formatTime(res.data.time);
+          var t = res.data.text;
+          arr.push({
+            'id': res.data._id,
+            'ownerId': res.personData.data[0]._id,
+            'profilePhoto': res.personData.data[0].avatar,
+            'name': res.personData.data[0].name,
+            'time': timeStr,
+            'state': '未领取',
+            'description': t
+          });
+        });
+        promises.push(p);
+      };
+      Promise.all(promises).then(
+        res => {
+          console.log(arr);
+          that.setData({
+            'id': arr[0].id,
+            'ownerId': arr[0].ownerId,
+            'profilePhoto': arr[0].profilePhoto,
+            'name': arr[0].name,
+            'time': arr[0].time,
+            'state': '未领取',
+            'description': arr[0].description
+          })
+        }
+      );
+    });  
+}
+
+function _get3(free,tag){
+  return orderTable.where({ wxNumber:getOpenid(), status: 0, label: tag }).get();
+}
+
+function changeMyOrder(that, tag) {
+  var num = null;
+  if (tag == '外卖')
+    num = 0;
+  else num = 1;
+  return _get3(true, num).then
+    (res => {
+      // //console.log(res.data);
+      var arr = that.data.deliveryInfo;
+      var promises = [];
+      for (var i = 0; i < res.data.length; i++) {
+        var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
+          //console.log(res);
+          var timeStr = formatTime(res.data.time);
+          var t = res.data.text;
+          arr.push({
+            'id': res.data._id,
+            'ownerId': res.data.wxNumber,
+            'profilePhoto': res.personData.data[0].avatar,
+            'name': res.personData.data[0].name,
+            'time': timeStr,
+            'tag': tag,
+            'state': '未领取',
+            'description': t
+          });
+        });
+        promises.push(p);
+      };
+      //console.log(arr);
+      Promise.all(promises).then(
+        res => {
+          that.setData({
+            deliveryInfo: arr
+          })
+        }
+      );
+    });
+}
+
+function changeMe(ifm){
+  ifMine = ifm;
+}
+
+function getMe(){
+  return ifMine;
+}
+
+//聊天记录插入数据库
+function chatTable1(e) {
+    const db = wx.cloud.database()
+    const _ = db.commond
+    db.collection('chatDataTable').add({
+        data: {
+            'wxNumber': e['speaker'],
+            'chatTime': new Date(),
+            'wxNumber1': getApp().globalData.otherid,
+            'chatContent': e['content']
+        },
+
+        success: function (res) {
+            console.log('插入成功'),
+                console.log(e),
+                console.log(getOpenid());
+        },
+        fail: function (res) {
+            console.log('插入失败')
+        }
+    })
+}
+
+//聊天记录查询
+function findchatTable1(e) {
+    const db = wx.cloud.database()
+    const _ = db.commond
+    db.collection('chatDataTable').where({
+        'wxNumber': e['speaker'],
+        //'chatTime': new Date(),
+        'wxNumber1': 'sdc1',
+        'chatContent': e['content'],
+        //'_openid':'_openid',
+    })
+        .get({
+
+            success: function (res) {
+                console.log('查询成功'),
+                    console.log(e)
+                console.log('sssss::' + res.data)
+            },
+            fail: function (res) {
+                console.log('查询失败')
+            }
+        })
+}
+
+function changeRecommendPage(that, info) {
+    return getAllOrderData().then
+        (res => {
+            that.data.infoList = [];
+            var arr = that.data.infoList;
+            var promises = [];
+            for (var i = 0; i < res.data.length; i++) {
+                var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
+                    var timeStr = formatTime(res.data.time);
+                    var t = res.data.text;
+                    var tag = null;
+                    if (res.data.lable == 0)
+                        tag = '宿舍';
+                    else
+                        tag = '教室';
+                    arr.push({
+                        'image': res.personData.data[0].avatar,
+                        'name': res.personData.data[0].name,
+                        'time': timeStr,
+                        'tag': tag,
+                        'state': '未领取',
+                        'description': t
+                    });
+                });
+                promises.push(p);
+            }
+            Promise.all(promises).then(
+                res => {
+                    that.setData({
+                        infoList: arr
+                    });
+                }
+            );
+        });
+}
+
+function searchRecommendPage(that, info) {
+    return getAllOrderData().then
+        (res => {
+            that.data.infoList = [];
+            var arr = that.data.infoList;
+            var promises = [];
+            for (var i = 0; i < res.data.length; i++) {
+                console.log(res.data.length);
+                var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
+                    var timeStr = formatTime(res.data.time);
+                    var t = res.data.text;
+                    var n = res.personData.data[0].name;
+                    var tag = null;
+                    if (res.data.lable == 0)
+                        tag = '宿舍';
+                    else
+                        tag = '教室';
+
+                    if (t != null && t.match(info) != null || n.match(info) != null || tag.match(info) != null) {
+
+                        arr.push({
+                            'image': res.personData.data[0].avatar,
+                            'name': n,
+                            'time': timeStr,
+                            'tag': tag,
+                            'state': '未领取',
+                            'description': t
+                        });
+                    }
+                });
+                promises.push(p);
+            }
+            Promise.all(promises).then(
+                res => {
+                    that.setData({
+                        infoList: arr
+                    });
+                }
+            );
+        });
 }
 
 module.exports = {
@@ -426,7 +657,17 @@ module.exports = {
   changeAddress:changeAddress,
   changeAddressTab: changeAddressTab,
   changeRecommendPage: changeRecommendPage,
-  searchRecommendPage: searchRecommendPage
+  changeTabIndex:changeTabIndex,
+  addFriend:addFriend,
+  acceptOrder:acceptOrder,
+  changeAcceptInfo: changeAcceptInfo,
+  changeMyOrder: changeMyOrder,
+  chatTable1: chatTable1,
+  findchatTable1: findchatTable1,
+  changeRecommendPage: changeRecommendPage,
+  searchRecommendPage: searchRecommendPage,
+  changeMe:changeMe,
+  getMe:getMe,
 }
 
 

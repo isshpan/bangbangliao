@@ -76,7 +76,7 @@ Page({
 
   navigateToMyDelivery: function (e) {
     //此处区分对应的跳转页面
-    console.log(e.currentTarget.id);
+    connect.changeMe(true);
     wx.navigateTo({
       url: '../order/delivery/delivery'
     })
@@ -84,7 +84,7 @@ Page({
 
   navigateToMyExpress: function (e) {
     //此处区分对应的跳转页面
-    console.log(e.currentTarget.id);
+    connect.changeMe(true);
     wx.navigateTo({
       url: '../order/express/express'
     })
