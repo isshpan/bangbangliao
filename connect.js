@@ -461,6 +461,84 @@ function findchatTable1(e) {
     })
 }
 
+function changeRecommendPage(that,info) {
+  return getAllOrderData().then
+    (res => {
+      that.data.infoList = [];
+      var arr = that.data.infoList;
+      var promises = [];
+      for (var i = 0; i < res.data.length; i++) {
+        var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
+          var timeStr = formatTime(res.data.time);
+          var t = res.data.text;
+          var tag = null;
+          if(res.data.lable==0)
+            tag = '宿舍';
+          else
+            tag = '教室';
+          arr.push({
+            'image': res.personData.data[0].avatar,
+            'name': res.personData.data[0].name,
+            'time': timeStr,
+            'tag': tag,
+            'state': '未领取',
+            'description': t
+          });
+        });
+        promises.push(p);
+      }
+      Promise.all(promises).then(
+        res => {
+          that.setData({
+            infoList: arr
+          });
+        }
+      );
+    });
+}
+
+function searchRecommendPage(that,info) {
+  return getAllOrderData().then
+    (res => {
+      that.data.infoList = [];
+      var arr = that.data.infoList;
+      var promises = [];
+      for (var i = 0; i < res.data.length; i++) {
+        console.log(res.data.length);
+        var p = examHasUserAndReturn2(res.data[i].wxNumber, res.data[i]).then(res => {
+          var timeStr = formatTime(res.data.time);
+          var t = res.data.text;
+          var n = res.personData.data[0].name;
+          var tag = null;
+          if (res.data.lable == 0)
+            tag = '宿舍';
+          else
+            tag = '教室';
+         
+          if (t != null && t.match(info) != null || n.match(info)!=null || tag.match(info)!=null ){
+
+            arr.push({
+              'image': res.personData.data[0].avatar,
+              'name': n,
+              'time': timeStr,
+              'tag': tag,
+              'state': '未领取',
+              'description': t
+            });
+          }
+        });
+        promises.push(p);
+      }
+      Promise.all(promises).then(
+        res => {
+          that.setData({
+            infoList: arr
+          });
+        }
+      );
+    });
+}
+
 module.exports = {
   initAndGetOpenId: initAndGetOpenId,
   changeCount:changeCount,
@@ -475,6 +553,7 @@ module.exports = {
   changeAddress:changeAddress,
   changeAddressTab: changeAddressTab,
   changeRecommendPage: changeRecommendPage,
+  searchRecommendPage: searchRecommendPage,
   changeTabIndex:changeTabIndex,
   addFriend:addFriend,
   acceptOrder:acceptOrder,
