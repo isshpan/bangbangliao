@@ -5,24 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    'addressInfoList': [
-      {
-        'id': 1,    //此处ID应为openID
-        'name': 'char',
-        'sex': '女士',
-        'phone': '13269200688',
-        'location': '教室',
-        'address': '信教1006',
-      },
-      {
-        'id': 2,    //此处ID应为openID
-        'name': 'char',
-        'sex': '女士',
-        'phone': '13269200688',
-        'location': '宿舍',
-        'address': '女子小区6号楼',
-      }
-    ]
+    'addressInfoList': []
   },
 
   onShow:function(e){

@@ -7,16 +7,7 @@ Page({
     textInput: '',
     express: 'default',
     delivery: 'warning',
-    addressInfo: [
-      {
-        'location': '宿舍',
-        'address': '女子小区6号楼',
-      },
-      {
-        'location': '教室',
-        'address': '信教2008',
-      }
-    ],
+    addressInfo: [],
     submit: {
       label: '',
       order: '外卖',
