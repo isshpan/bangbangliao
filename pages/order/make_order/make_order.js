@@ -56,7 +56,7 @@ Page({
 
   formSubmit(e) {
     var temp = e.detail.value;
-    if (temp.标签 != '' && temp.正文 != '') {
+    if (temp.标签 != '' && temp.正文 != '' && temp.收货地址 != '') {
       this.setData({
         submit: {
           label: e.detail.value.标签,
